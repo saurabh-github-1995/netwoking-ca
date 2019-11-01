@@ -1,0 +1,103 @@
+/* .doctor-details-container {
+	background-color: #eaf5f3e3;
+	max-width: 420px;
+	margin: auto;
+	padding: 10px;
+	border-radius: 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-family: sans-serif;
+}
+
+.doctor-image-container {
+	width: 300px;
+	margin: auto;
+}
+
+.image-styles {
+	width: 100%;
+	border: 1px solid #a5828282;
+}
+
+.doctor-details-labels-container {
+	border-bottom: 1px solid #e0dbdb;
+}
+
+.doctor-details-labels {
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+
+.main-content-container {
+	background-position: 50% 50%;
+	background-size: cover;
+	background-attachment: fixed;
+	margin: 0;
+	padding: 0;
+	background-repeat: no-repeat;
+	background-image: url('../images/health-care/background-blur.jpg');
+}
+
+.marging-bottom-0px {
+	margin-bottom: 0px;
+} */
+.customer-details-container {
+	max-width: 800px;
+	background-color: #f9f2f2;
+	margin: 40px auto;
+	box-sizing: border-box;
+}
+
+.customer-details-header-container {
+	background-color: #749ec1;
+	color: white;
+	padding: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.customer-details-column-container {
+	display: flex;
+	justify-content: left;
+}
+
+.customer-details-half-row-container {
+	width: 50%;
+	padding: 20px;
+}
+
+.customer-details-title {
+	border-bottom: 1px solid #9a9696;
+	color: #4d88ba;
+}
+
+.customer-title-and-data-container {
+	margin-bottom: 20px;
+}
+
+.customer-details-header-title-container {
+	font-size: 19px;
+	font-weight: bold;
+	margin: 0;
+}
+
+@media ( max-width :600px) {
+	.customer-details-half-row-container {
+		width: 100%;
+	}
+	.customer-details-column-container {
+		flex-wrap: wrap;
+	}
+	.customer-details-half-row-container {
+		padding-bottom: 0;
+		padding-top: 0;
+	}
+}
+
+@media ( max-width :900px) {
+	.customer-details-container {
+		margin: 40px 10px;
+	}
+}

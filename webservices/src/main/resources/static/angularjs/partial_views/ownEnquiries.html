@@ -1,0 +1,654 @@
+<div class="customers-container">
+	<div class="customers-headers">
+		<h1>Enquiries</h1>
+	</div>
+
+	<div class="enquiry-icon-container">
+		<div ng-click="lvm.showAddEnquiryModal('AIRTICKET',1)">
+			<div class="enquiry-icon-image-container">
+				<img src="images/air-ticket.png" class="enquiry-icon-imager">
+			</div>
+			<div>
+				<p class="enquiry-icon-text">Air ticket</p>
+			</div>
+		</div>
+		<div ng-click="lvm.showAddEnquiryModal('HOLIDAY',3)">
+			<div class="enquiry-icon-image-container"><img src="images/holiday-package.png" class="enquiry-icon-imager">
+			</div>
+			<div>
+				<p class="enquiry-icon-text">Holidays</p>
+			</div>
+		</div>
+		<div ng-click="lvm.showAddEnquiryModal('HOTELS',2)">
+			<div class="enquiry-icon-image-container"><img src="images/hotel-booking.png" class="enquiry-icon-imager">
+			</div>
+			<div>
+				<p class="enquiry-icon-text">Hotels</p>
+			</div>
+		</div>
+		<div ng-click="lvm.showAddEnquiryModal('VISA',4)">
+			<div class="enquiry-icon-image-container"><img src="images/visa.png" class="enquiry-icon-imager"></div>
+			<div>
+				<p class="enquiry-icon-text">Visa</p>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="AIRTICKET" role="dialog">
+		<div class="modal-dialog modal-dialog-custom" style="width: 100%">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<div class="enquiry-icon-image-container">
+						<img src="images/air-ticket.png" class="enquiry-icon-imager">
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="new-input-personal-data-container">
+						<div class="new-input-field-container-width-50p">
+							<input type="text" placeholder="Name.." class="new-input-field"
+								ng-model="lvm.enquiry.guestName">
+						</div>
+						<div class="new-input-field-container-width-50p">
+							<input type="text" placeholder="Contact no.." class="new-input-field"
+								ng-model="lvm.enquiry.contactNo">
+						</div>
+						<div class="new-input-field-container-width-100p">
+							<input type="email" placeholder="Email id.." class="new-input-field"
+								ng-model="lvm.enquiry.emailId">
+						</div>
+					</div>
+					<div>
+						<div class="way-buttons-container">
+							<div class="radio-buttons-text-flex-container" ng-click="lvm.selectJourneyType('oneWay')"
+								id="oneWay">
+								<p class="radio-butoons-text">ONE WAY</p>
+								<i class="radio-butoons"></i>
+							</div>
+							<div class="radio-buttons-text-flex-container" ng-click="lvm.selectJourneyType('roundTrip')"
+								id="roundTrip">
+								<p class="radio-butoons-text">ROUND TRIP </p>
+								<i class="radio-butoons"></i>
+							</div>
+							<div class="radio-buttons-text-flex-container" ng-click="lvm.selectJourneyType('multiCity')"
+								id="multiCity">
+								<p class="radio-butoons-text">MULTI CITY </p>
+								<i class="radio-butoons"></i>
+							</div>
+						</div>
+					</div>
+					<div id="details-container">
+						<div class="detials-containers" id="details-container-1">
+							<div class="details-20perc-container" ng-click="lvm.showCityModel('fromJourney')">
+								<p class="font-weight-bold margin-bottom-0px">FROM</p>
+								<p class="city-name margin-bottom-0px">{{lvm.fromCityName}}</p>
+								<p class="margin-bottom-0px">{{lvm.fromAirportDetails}}</p>
+
+							</div>
+							<div class="details-20perc-container" ng-click="lvm.showCityModel('toJourney')">
+								<p class="font-weight-bold margin-bottom-0px">TO</p>
+								<p class="city-name margin-bottom-0px">{{lvm.toCityName}}</p>
+								<p class="margin-bottom-0px">{{lvm.toAirportDetails}}</p>
+							</div>
+							<div class="details-20perc-container">
+								<p class="font-weight-bold">DEPARTURE</p>
+								<input type="date" class="new-input-field" ng-model="lvm.enquiry.departureDate">
+							</div>
+							<div class="details-20perc-container" id="returnDate">
+								<p class="font-weight-bold">RETURN</p>
+								<input type="date" class="new-input-field" ng-model="lvm.enquiry.returnDate">
+							</div>
+							<div class="details-20perc-container" ng-click="lvm.showTravelInfo()">
+								<p class="font-weight-bold">TRAVELLERS & CLASS</p>
+
+							</div>
+							<div class="details-20perc-container display-none" id="addCity">
+								<p class="font-weight-bold">ADD CITY</p>
+								<button ng-click="lvm.addMulticityRow()">Add city</button>
+							</div>
+
+						</div>
+
+					</div>
+					<div id="travellersModal" style="display: none">
+						<div>
+							<h3 style="text-align: center">TRAVELLERS & CLASS</h3>
+							<!-- <button>Button</button> -->
+						</div>
+
+
+						<div class="adult-child-container">
+
+							<div class="adult-child-container-flex-container">
+								<div class="hide-button-div" ng-click="lvm.hideTravelInfo()">
+									<img src="images/close.png" height="30px">
+								</div>
+								<div>
+									<p>ADULTS</p>
+									<input type="number" class="adult-input-container" ng-model="lvm.enquiry.adult">
+								</div>
+								<div>
+									<p>CHILDREN</p>
+									<input type="number" class="adult-input-container" ng-model="lvm.enquiry.child">
+								</div>
+								<div>
+									<p>INFANTS</p>
+									<input type="number" class="adult-input-container" ng-model="lvm.enquiry.infants">
+								</div>
+							</div>
+							<div>
+								<div class="way-buttons-container">
+									<div class="radio-buttons-text-flex-container" id="economy">
+										<p class="radio-butoons-text" style="font-weight: 100;"
+											ng-click="lvm.selectTravelClass('economy')">Economy
+										</p>
+										<i class="radio-butoons"></i>
+									</div>
+									<div class="radio-buttons-text-flex-container" id="economyPremium"
+										ng-click="lvm.selectTravelClass('economyPremium')">
+										<p class="radio-butoons-text" style="font-weight: 100;">Premium Eco</p>
+										<i class="radio-butoons"></i>
+									</div>
+									<div class="radio-buttons-text-flex-container" id="business"
+										ng-click="lvm.selectTravelClass('business')">
+										<p class="radio-butoons-text" style="font-weight: 100;">Business</p>
+										<i class="radio-butoons"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div id="airportModel" style="display: none">
+						<h3 style="text-align: center">Airports</h3>
+						<div class="search-input-container">
+							<input type="text" class="search-input" ng-model="lvm.searchForToCity"
+								ng-change="lvm.searchAirport(lvm.searchForToCity)">
+							<div class="list-dropdown-container">
+								<div ng-repeat="airport in lvm.airports" class="list-item">
+									<div ng-click="lvm.setAirport(airport)">
+										<p class="margin-bottom-0px">{{airport.cityName+" , "+airport.countryName}}</p>
+										<p>{{airport.code}}</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div id="airportModelForMultipleCity" style="display: none">
+						<h3 style="text-align: center">Airports</h3>
+						<div class="search-input-container">
+							<input type="text" class="search-input" ng-model="lvm.searchForToCitymultiple"
+								ng-change="lvm.searchAirport(lvm.searchForToCitymultiple)">
+							<div class="list-dropdown-container">
+								<div ng-repeat="airport in lvm.airports" class="list-item">
+									<div ng-click="lvm.setAirportForMultipleCity(airport)">
+										<p class="margin-bottom-0px">{{airport.cityName+" , "+airport.countryName}}</p>
+										<p>{{airport.code}}</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" ng-click="lvm.registerEnquiry()">Update</button>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div style="font-weight: bold;padding: 5px;">
+		<p>Showing {{lvm.enquiries.length}} Enquiries</p>
+		<!-- <button ng-click="lvm.navigateToAddEnquiry()">Add Enquiry</button> -->
+	</div>
+	<div>
+		<div class="flex-table-container">
+			<div class="headers-cell">Enquiry Number</div>
+			<div class="headers-cell">Guest Name</div>
+			<div class="headers-cell">Contact No</div>
+			<div class="headers-cell">Service</div>
+			<div class="headers-cell">Adult / Child</div>
+			<div class="headers-cell">Status</div>
+			<div class="headers-cell"></div>
+			<!-- <div class="headers-cell">Edit / Delete</div> -->
+		</div>
+		<div class="flex-cell-container" ng-repeat="x in lvm.enquiries">
+			<div class="row-cell" >{{x.eqnuiryNumber}}</div>
+			<div class="row-cell" ng-click="lvm.getCustomerDetails(x.id)">{{x.guestName}}</div>
+			<div class="row-cell" ng-click="lvm.getCustomerDetails(x.id)">{{x.contactNo}}</div>
+			<div class="row-cell" ng-click="lvm.getCustomerDetails(x.id)">{{x.serviceName}}</div>
+			<div class="row-cell" >{{x.adult}} / {{x.child}}</div>
+			<div class="row-cell" >{{x.status}}</div>
+			<div class="row-cell"><button ng-click="lvm.showRemarkModel(x.id,x.remark,x.status,x.dateOfNextAction)">Remark</button></div>
+
+		</div>
+
+	</div>
+
+
+
+
+</div>
+<!--Visa Modal -->
+<div class="modal fade" id="VISA" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div class="enquiry-icon-image-container">
+					<img src="images/visa.png" class="enquiry-icon-imager">
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="new-input-personal-data-container">
+					<div class="new-input-field-container-width-50p">
+						<input type="text" placeholder="Name.." class="new-input-field"
+							ng-model="lvm.enquiry.guestName">
+					</div>
+					<div class="new-input-field-container-width-50p">
+						<input type="text" placeholder="Contact no.." class="new-input-field"
+							ng-model="lvm.enquiry.contactNo">
+					</div>
+					<div class="new-input-field-container-width-100p">
+						<input type="email" placeholder="Email id.." class="new-input-field"
+							ng-model="lvm.enquiry.emailId">
+					</div>
+				</div>
+				<div>
+					<div class="way-buttons-container">
+						<div class="radio-buttons-text-flex-container radio-buttons-width-49p" id="TOURIST"
+							ng-click="lvm.setVisaType('TOURIST')">
+							<p class="radio-butoons-text" style="font-weight: 100;">TOURIST
+							</p>
+							<i class="radio-butoons"></i>
+						</div>
+						<div class="radio-buttons-text-flex-container radio-buttons-width-49p" id="BUSINESS"
+							ng-click="lvm.setVisaType('BUSINESS')">
+							<p class="radio-butoons-text" style="font-weight: 100;">BUSINESS</p>
+							<i class="radio-butoons"></i>
+						</div>
+
+					</div>
+				</div>
+
+				<div id="countryModel">
+					<h3 style="text-align: center">Destination</h3>
+					<div class="search-input-container">
+						<input type="text" class="search-input" ng-model="lvm.searchForCountry"
+							ng-change="lvm.searchCountry(lvm.searchForCountry)" ng-click="lvm.showCountryList('countriesList')">
+						<div class="list-dropdown-container" id="countriesList" style="display: none">
+							<div ng-repeat="country in lvm.countries" class="list-item">
+								<div ng-click="lvm.setCountry(country)">
+									<p class="margin-bottom-0px">{{country.name}}</p>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="lvm.registerEnquiry()">Update</button>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="modal fade" id="HOLIDAY" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div class="enquiry-icon-image-container">
+					<img src="images/holiday-package.png" class="enquiry-icon-imager">
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="new-input-personal-data-container">
+					<div class="new-input-field-container-width-50p">
+						<input type="text" placeholder="Name.." class="new-input-field"
+							ng-model="lvm.enquiry.guestName">
+					</div>
+					<div class="new-input-field-container-width-50p">
+						<input type="text" placeholder="Contact no.." class="new-input-field"
+							ng-model="lvm.enquiry.contactNo">
+					</div>
+					<div class="new-input-field-container-width-100p">
+						<input type="email" placeholder="Email id.." class="new-input-field"
+							ng-model="lvm.enquiry.emailId">
+					</div>
+
+				</div>
+				<div class="new-input-personal-data-container" style="margin-top: 11px;">
+					<div class="new-input-field-container-width-50p">
+						<p style="font-weight: bold">SECTOR</p>
+						<input type="text" class="new-input-field" ng-model="lvm.enquiry.sector">
+					</div>
+					<div class="new-input-field-container-width-50p">
+						<p style="font-weight: bold">DEPARTURE</p>
+						<input type="date" class="new-input-field" ng-model="lvm.enquiry.departureDate">
+					</div>
+				</div>
+
+				<div>
+					<div class="way-buttons-container">
+						<div class="radio-buttons-text-flex-container radio-buttons-width-49p" id="INTERNATIONAL"
+							ng-click="lvm.setHolidayDestiantion('INTERNATIONAL')">
+							<p class="radio-butoons-text" style="font-weight: 100;">INTERNATIONAL
+							</p>
+							<i class="radio-butoons"></i>
+						</div>
+						<div class="radio-buttons-text-flex-container radio-buttons-width-49p" id="DOMESTIC"
+							ng-click="lvm.setHolidayDestiantion('DOMESTIC')">
+							<p class="radio-butoons-text" style="font-weight: 100;">DOMESTIC</p>
+							<i class="radio-butoons"></i>
+						</div>
+
+					</div>
+				</div>
+				<div class="from-city-to-city-flex-container">
+					<div class="from-city-to-city-flex-49p">
+						<p>FROM</p>
+						<div>
+							<p><input type="text" class="search-input"
+									ng-model="lvm.enquiry.holidayFromCountry" ng-change="lvm.searchCountry(lvm.enquiry.holidayFromCountry)"
+									ng-click="lvm.showCountryList('fromCountriesList')" autocomplete="false">
+								<div class="list-dropdown-container" id="fromCountriesList" style="display: none">
+									<div ng-repeat="country in lvm.popularCountries" class="list-item">
+										<div ng-click="lvm.setHolidayCountry(country,'fromCountriesList')">
+											<p class="margin-bottom-0px">{{country.name}}</p>
+
+										</div>
+									</div>
+								</div>
+							</p>
+							<p><input type="text" class="search-input" ng-model="lvm.enquiry.holidayFromCity"
+									ng-change="lvm.searchFromCity(lvm.enquiry.holidayFromCity)"
+									ng-click="lvm.showCitiesList('fromCitiesList')" autocomplete="false">
+								<div class="list-dropdown-container" id="fromCitiesList" style="display: none">
+									<div ng-repeat="city in lvm.fromCities" class="list-item">
+										<div ng-click="lvm.setHolidayCity(city,'fromCitiesList')">
+											<p class="margin-bottom-0px">{{city.cityname}}</p>
+
+										</div>
+									</div>
+								</div>
+							</p>
+						</div>
+					</div>
+					<div class="from-city-to-city-flex-49p">
+						<p>TO</p>
+						<div>
+							<p><input type="text" class="search-input" ng-model="lvm.enquiry.holidayToCountry"
+									ng-change="lvm.searchCountry(lvm.enquiry.holidayToCountry)" ng-click="lvm.showCountryList('toCountriesList')"
+									autocomplete="off">
+								<div class="list-dropdown-container" id="toCountriesList" style="display: none">
+									<div ng-repeat="country in lvm.popularCountries" class="list-item">
+										<div ng-click="lvm.setHolidayCountry(country,'toCountriesList')">
+											<p class="margin-bottom-0px">{{country.name}}</p>
+					
+										</div>
+									</div>
+								</div>
+							</p>
+							<p><input type="text" class="search-input" ng-model="lvm.enquiry.holidayToCity"
+									ng-change="lvm.searchToCity(lvm.enquiry.holidayToCity)" ng-click="lvm.showCitiesList('toCitiesList')" autocomplete="off">
+								<div class="list-dropdown-container" id="toCitiesList" style="display: none">
+									<div ng-repeat="city in lvm.toCities" class="list-item">
+										<div ng-click="lvm.setHolidayCity(city,'toCitiesList')">
+											<p class="margin-bottom-0px">{{city.cityname}}</p>
+					
+										</div>
+									</div>
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div id="countryModel">
+					<h3 style="text-align: center">Destination</h3>
+					<div class="search-input-container">
+
+
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="lvm.registerEnquiry()">Update</button>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- Hotels Modal -->
+<div class="modal fade" id="HOTELS" role="dialog">
+	<div class="modal-dialog modal-dialog-custom" style="width: 100%">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div class="enquiry-icon-image-container">
+					<img src="images/hotel-booking.png" class="enquiry-icon-imager">
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="new-input-personal-data-container">
+					<div class="new-input-field-container-width-50p">
+						<input type="text" placeholder="Name.." class="new-input-field"
+							ng-model="lvm.enquiry.guestName">
+					</div>
+					<div class="new-input-field-container-width-50p">
+						<input type="text" placeholder="Contact no.." class="new-input-field"
+							ng-model="lvm.enquiry.contactNo">
+					</div>
+					<div class="new-input-field-container-width-100p">
+						<input type="email" placeholder="Email id.." class="new-input-field"
+							ng-model="lvm.enquiry.emailId">
+					</div>
+				</div>
+				
+				<div id="hotel-details-container" style="margin-top: 20px">
+					<div class="detials-containers" id="hotel-details-container-1">
+						<div class="details-20perc-container" ng-click="lvm.displayHotelCountry(1)">
+							<p class="font-weight-bold margin-bottom-0px">PLACE</p>
+							<p class="city-name margin-bottom-0px" id="hotel-city-1"></p>
+							<p class="margin-bottom-0px"  id="hotel-country-1"></p>
+
+						</div>
+						
+						<div class="details-20perc-container">
+							<p class="font-weight-bold">CHECK-IN</p>
+							<input type="date" class="new-input-field" id="checkin-date-1">
+						</div>
+						<div class="details-20perc-container" id="returnDate">
+							<p class="font-weight-bold">CHECK-OUT</p>
+							<input type="date" class="new-input-field" id="checkout-date-1">
+						</div>
+						<div class="details-20perc-container" ng-click="lvm.showTravelInfo()">
+							<p class="font-weight-bold">ROOMS & GUESTS <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="lvm.showRommsAndGuestModal(1)"></i></i>
+							</p>
+							<div class="adult-children-infants-flex-container">
+								<div class="adult-children-infants-30p">AD - <span id="adult-1">0</span></div>
+								<div class="adult-children-infants-30p">CH - <span id="children-1">0</span></div>
+								<div class="adult-children-infants-30p">IF - <span id="infant-1">0</span></div>
+								<div class="adult-children-infants-30p">ROOMS - <span id="rooms-1">0</span></div>
+							</div>
+						</div>
+						<div class="details-20perc-container" >
+							<p class="font-weight-bold">ADD PLACE</p>
+							<button ng-click="lvm.addHotelRow()">Add Place</button>
+						</div>
+
+					</div>
+
+				</div>
+				<div id="rommsAndGuestModal" style="display: none">
+					<div>
+						<h3 style="text-align: center">GUESTS & ROOMS</h3>
+						<!-- <button>Button</button> -->
+					</div>
+
+
+					<div class="adult-child-container">
+
+						<div class="adult-child-container-flex-container">
+							<div class="hide-button-div" ng-click="lvm.hideTravelInfo()">
+								<img src="images/close.png" height="30px">
+							</div>
+							<div>
+								<p>ADULTS</p>
+								<input type="number" class="adult-input-container" ng-model="lvm.adult">
+							</div>
+							<div>
+								<p>CHILDREN</p>
+								<input type="number" class="adult-input-container" ng-model="lvm.child">
+							</div>
+							<div>
+								<p>INFANTS</p>
+								<input type="number" class="adult-input-container" ng-model="lvm.infants">
+							</div>
+						</div>
+						<div>
+							<div class="way-buttons-container">
+								<div>
+									<p>ROOMS</p>
+									<input type="number" class="adult-input-container" ng-model="lvm.rooms">
+								</div>
+							</div>
+						</div>
+						<button type="button" class="btn btn-primary" ng-click="lvm.applyGuestAndRoomValues()">Apply</button>
+					</div>
+					
+				</div>
+				<div class="hotel-country-and-city" id="hotelCountryModal">
+					<form autocomplete="off">
+						<p>
+							Country
+							<input type="text" class="search-input" ng-model="lvm.hotelCountry"
+								ng-change="lvm.searchCountry(lvm.hotelCountry)" ng-click="lvm.showCountryList('hotelCountryList')"
+								autocomplete="off">
+							<div class="list-dropdown-container" id="hotelCountryList" style="display: none">
+								<div ng-repeat="country in lvm.popularCountries" class="list-item">
+									<div ng-click="lvm.setHolidayCountry(country,'hotelCountryList')">
+										<p class="margin-bottom-0px">{{country.name}}</p>
+				
+									</div>
+								</div>
+							</div>
+						</p>
+						<p>city
+							<input type="text" class="search-input" ng-model="lvm.hotelCity"
+								ng-change="lvm.searchHotelCity(lvm.hotelCity)" ng-click="lvm.showCitiesList('toCitiesList')" autocomplete="off">
+							<div class="list-dropdown-container" id="hotelCitiesList" style="display: none">
+								<div ng-repeat="city in lvm.hotelCities" class="list-item">
+									<div ng-click="lvm.setHolidayCity(city,'hotelCitiesList')">
+										<p class="margin-bottom-0px">{{city.cityname}}</p>
+				
+									</div>
+								</div>
+							</div>
+						</p>
+					</form>
+					<button type="button" class="btn btn-primary" ng-click="lvm.applyCityAndCountry()">Apply</button>
+				</div>
+				
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="lvm.registerEnquiry()">Update</button>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+<!--Roles Modal -->
+<div class="modal fade" id="rolesModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Roles</h4>
+			</div>
+			<div class="modal-body">
+				<p>Current Roles</p>
+				<div id="checkboxes">
+
+					<div ng-repeat="role in lvm.roles">
+						<div class="role-and-input-container">
+							<p class="role-name-container">{{role.roleName}}</p>
+							<input type="checkbox" style="margin: 0px" value="{{role.id}}">
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="lvm.updateRoles()">Update</button>
+				<button type="button" class="btn btn-danger">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!--Remark Modal -->
+<div class="modal fade" id="remarkModel" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Remark & Status</h4>
+			</div>
+			<div class="modal-body">
+			
+				<div id="checkboxes">
+					<p><b>Remark</b></p>
+					<textarea rows="" cols="" ng-model="lvm.remark" style="height: 140px;" class="form-input-field"></textarea>
+					<p><b>Status</b></p>
+					<select class="form-input-field" ng-model="lvm.status">
+						<option value="SELECT">Select</option>
+						<option value="PENDING">Pending</option>
+						<option value="QUOTED">Quoted</option>
+						<option value="FOLLOW UP">Follow up</option>
+						<option value="CONFIRMATION">Confirmation</option>
+						<option value="LOSE">Lose</option>
+					  </select>
+					  <p><b>Date of Next Action</b></p>
+					  <input type="date" class="form-input-field" ng-model="lvm.dateOfNextAction" id="dateOfNextAction">
+				</div>
+				
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="lvm.updateEnquiryRemark()">Update</button>
+				<button type="button" class="btn btn-danger"
+					>Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>

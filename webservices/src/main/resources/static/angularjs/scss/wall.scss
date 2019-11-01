@@ -1,0 +1,116 @@
+/** Wall styling **/
+
+@mixin inline-block-top {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.zm-wall {
+  width:  100%;
+  margin: auto;
+}
+
+.zm-post {
+  background: white;
+  margin: 10px auto;
+  padding: 10px;
+  width: 98%;
+
+  .logo-container{
+    @include inline-block-top;
+    .portal-logo{
+      width: 50px;
+    }
+  }
+
+
+  /* Post text*/
+  .text-container{
+
+    @include inline-block-top;
+    width: 80%;
+    margin-left: 5px;
+    overflow: hidden;
+
+    /* Title */
+    .title{
+      text-align: left;
+      font-weight: bold;
+      font-size: 13px;
+
+      input{
+        width:90%;
+      }
+    }
+
+    /* Poster details*/
+    .poster{
+      font-size: 10px;
+      font-style: italic;
+      text-align: left;
+      margin-top: 5px;
+    }
+
+    /* Content */
+    .content{
+      text-align: left;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .post-image{
+      max-width: 90%;
+      max-height: 300px;
+      margin: 10px auto;
+      display: block;
+    }
+  }
+}
+
+
+	.portal-wall-post-container{
+		display:flex;
+		justify-content:center;
+		flex-wrap: wrap;
+	}
+	.wall-post-content-container{
+	    border: 2px solid #cec8c8;
+	    width: 250px;
+	    margin: 15px; 
+	    position:relative;
+	    
+	    
+	}
+	.post-image{
+      max-width: 90%;
+      max-height: 250px;
+      margin: 10px auto;
+      display: block;
+    }
+    .title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1em;
+	  padding-top: 8px;
+   }
+   .poster{
+      font-size: 12px;
+      font-style: italic;
+      text-align: left;
+      margin-top: 5px;
+      text-align: center;
+      
+    }
+    .content{
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+      height: 80px;
+      overflow-y: auto;
+      margin-bottom:20px;
+    }
+    .class-btn-position{
+    	position:absolute;
+	    bottom: 10px;
+    	left: 77px;
+    }

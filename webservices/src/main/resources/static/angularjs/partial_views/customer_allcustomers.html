@@ -1,0 +1,120 @@
+<div class="customers-container">
+	<div class="customers-headers">
+		<h1>Customers</h1>
+	</div>
+	<div>
+		<div class="search-bar">
+			<div class="search-fields-container">
+				<input type="text" ng-model="lvm.searchQuery" class="input-zm-header-search">
+				<div>
+					<button ng-click="lvm.getSearchedCustomers(lvm.searchQuery)" class="search-button">Search</button>
+					<button ng-click="lvm.clearSearch()" class="search-button">Clear</button>
+				</div>
+
+			</div>
+
+			<div ng-if="lvm.noResultsFound">
+				<h4>No match found</h4>
+			</div>
+			<div style="width: 100%; background-color: #e1f1ff;" ng-if="lvm.diplsaySearchResult">
+				<h1 style="text-align: center;">Search Results</h1>
+				<div class="customer-new-design-flex-container">
+
+
+					<div ng-repeat="x in lvm.searchedCustomers">
+
+						<div class="customer-new-design-data-container" ng-click="lvm.getCustomerDetails(x.customer.id)">
+							<p>Name: {{x.customer.title+" "+x.customer.firstName+" "+x.customer.middleName+" "+x.customer.lastName}}</p>
+							<p>Email: {{x.customer.emailId}}</p>
+							<p>Contact no: {{x.customer.telNo}}</p>
+							<p>Company Name: {{x.customer.companyName}}</p>
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<!-- <div class="customer-new-design-flex-container">
+		<div ng-repeat="x in lvm.customers">
+
+			<div class="customer-new-design-data-container">
+				ng-click="lvm.getCustomerDetails(x.id)"
+				<p>Name: {{x.title+" "+x.firstName+" "+x.middleName+"
+					"+x.lastName}}</p>
+				<p>Email: {{x.emailId}}</p>
+				<p>Contact no: {{x.telNo}}</p>
+				<p>Company Name: {{x.companyName}}</p>
+				<div>
+					<button ng-click="lvm.navigateToCustomersVisaDetails(x.id)">Visa</button>
+					<button>Interest</button>
+					<button>Frequent Flyer</button>
+				</div>
+			</div>
+
+
+		</div>
+	</div> -->
+
+	<div>
+		<div class="flex-table-container">
+			<div class="headers-cell">Name</div>
+			<div class="headers-cell">Email Id</div>
+			<div class="headers-cell">Contact No</div>
+			<div class="headers-cell">Company Name</div>
+			<div class="headers-cell">Birthday</div>
+			<div class="headers-cell">Wedding Ann.</div>
+			<!-- <div class="headers-cell">Edit / Delete</div> -->
+		</div>
+		<div class="flex-cell-container" ng-repeat="x in lvm.customers">
+			<div class="row-cell" ng-click="lvm.getCustomerDetails(x.id)">{{x.title+" "+x.firstName+" "+x.middleName+" "+x.lastName}}</div>
+			<div class="row-cell" ng-click="lvm.getCustomerDetails(x.id)">{{x.emailId}}</div>
+			<div class="row-cell" ng-click="lvm.getCustomerDetails(x.id)">{{x.telNo}}</div>
+			<div class="row-cell" ng-click="lvm.getCustomerDetails(x.id)">{{x.companyName}}</div>
+			<div class="row-cell" ng-click="lvm.getCustomerDetails(x.id)">{{x.dateOfBirth | date}}</div>
+			<div class="row-cell" ng-click="lvm.getCustomerDetails(x.id)">{{x.weddingAnniversary | date}}</div>
+			<!-- <div class="row-cell">
+				<div class="edit-delete-button-container">
+					<p class="glyphicon glyphicon-pencil edit-delete-button-icon-container"></p>
+					<p class="glyphicon glyphicon-trash edit-delete-button-icon-container"></p>
+				</div>
+
+			</div> -->
+		</div>
+
+	</div>
+
+
+	<div class="birthdays-header">
+		<h3>Birthday's in this month</h3>
+	</div>
+	<div class="month-birthday-flex-container">
+		<div class="month-birthday-flex-item-container" ng-repeat="cust in lvm.birthdayCustomers">
+			<div ng-click="lvm.getCustomerDetails(cust.customer.id)">
+				<p>Name: {{cust.customer.firstName+" "+cust.customer.lastName}}</p>
+				<p>Birthday:{{cust.customer.dateOfBirth | date}}</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="mob-customers">
+		<div ng-repeat="x in lvm.customers" class="mob-table-container">
+			<div class="mob-table-header">
+				<div ng-click="lvm.getCustomerDetails(x.id)">{{x.title}} {{x.firstName}} {{x.middleName}} {{x.lastName}}</div>
+				<!-- <div class="edit-delete-button-container">
+					<p class="glyphicon glyphicon-pencil edit-delete-button-icon-container"></p>
+					<p class="glyphicon glyphicon-trash edit-delete-button-icon-container"></p>
+				</div> -->
+			</div>
+			<div class="mob-table-row" ng-click="lvm.getCustomerDetails(x.id)">Email Id : {{x.emailId}}</div>
+			<div class="mob-table-row" ng-click="lvm.getCustomerDetails(x.id)">Contact No : {{x.telNo}}</div>
+			<div class="mob-table-row" ng-click="lvm.getCustomerDetails(x.id)">Company Name : {{x.companyName}}</div>
+		</div>
+
+	</div>
+
+</div>

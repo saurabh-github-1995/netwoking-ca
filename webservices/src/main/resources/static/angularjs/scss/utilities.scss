@@ -1,0 +1,38 @@
+
+
+/**** Utility classess ****/
+.vertical-seperator {
+    content: '|';
+}
+
+.vertical-seperator {
+    display: inline-block;
+    color: white;
+    vertical-align: top;
+    height: 30px;
+    font-weight: bolder;
+    border: 1px solid white;
+}
+
+.layout-block-inline{
+	 display: inline-block;
+	 vertical-align: middle;
+}
+
+.cursor-pointer{
+	cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .hideIfMobile {
+    display:none;
+  }
+}
+
+.width-100-percent{
+    width: 100%;
+}
+.custom-flexbox{
+	display:flex;
+	align-items: center;
+}

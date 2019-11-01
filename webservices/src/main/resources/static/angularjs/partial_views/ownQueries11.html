@@ -1,0 +1,253 @@
+<div class="customers-container">
+	<div class="customers-headers">
+		<h1>Queries</h1>
+	</div>
+
+	<div class="enquiry-icon-container">
+		<div ng-click="lvm.showAddEnquiryModal('AIRTICKET',1)">
+			<div class="enquiry-icon-image-container">
+				<img src="images/air-ticket.png" class="enquiry-icon-imager">
+			</div>
+			<div>
+				<p class="enquiry-icon-text">Query</p>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modal fade" id="AIRTICKET" role="dialog">
+		<div class="modal-dialog modal-dialog-custom" style="width: 100%">
+
+			Modal content
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<div class="enquiry-icon-image-container">
+						<img src="images/air-ticket.png" class="enquiry-icon-imager">
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="new-input-personal-data-container">
+						<p class="font-weight-bold margin-bottom-0px">Query</p>
+						<textarea class="queries-textarea" ng-model="lvm.queryData"></textarea>
+						<p class="font-weight-bold margin-bottom-0px">Status</p>
+						<select class="form-input-field" ng-model="lvm.status">
+
+							<option value="PENDING">Pending</option>
+							<option value="QUOTED">Quoted</option>
+							<option value="FOLLOW UP">Follow up</option>
+							<option value="CONFIRMATION">Confirmation</option>
+							<option value="LOSE">Lose</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" ng-click="lvm.createQuery()">Update</button>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+	<div ng-repeat="query in lvm.queries" class="two-grid">
+		<div class="currentQueryDivOne" id="{{query.appQueries.id}}-main-query">
+			<div class="data1">
+				<div>
+					<p><b
+							class="font-color-blue">{{query.appQueriesRemarks[query.appQueriesRemarks.length-1].status}}</b><i>
+							-
+							{{query.appQueriesRemarks[query.appQueriesRemarks.length-1].nextActiondate | date}}</i>&nbsp&nbsp&nbsp
+						<button ng-click="lvm.showUsersModel(query.appQueries.id)" class="assignButton">Assign</button>
+						<span class="user-name-container" style="float: right;">-
+							{{query.appQueries.createdByName}}</span>
+					</p>
+					<p ng-bind-html="query.appQueries.queryData | multiline"
+						class="queries-limited-container custom-scroll"></p>
+
+					<p><span ng-bind-html="query.appQueriesRemarks[query.appQueriesRemarks.length-1].createdByName | multiline"
+							class="font-color-blue user-name-container">{{cq.createdByName}}</span> - </p>
+					<p><span
+							ng-bind-html="query.appQueriesRemarks[query.appQueriesRemarks.length-1].remark | multiline"></span>
+					</p>
+					<div class="remarks-form-container">
+						<div>
+							<textarea class="text-area-100p ng-pristine ng-untouched ng-valid ng-empty"
+								id="remark_{{$index}}"></textarea>
+						</div>
+						<div class="remarks-flex-container">
+							<div class="remarks-input-field-container">
+								<p><b class="font-color-blue">Status</b></p>
+								<select class="form-input-field ng-pristine ng-untouched ng-valid ng-empty"
+									id="remarkstatus_{{$index}}">
+									<option value="? undefined:undefined ?"></option>
+									<option value="PENDING">Pending</option>
+									<option value="QUOTED">Quoted</option>
+									<option value="FOLLOW UP">Follow up</option>
+									<option value="CONFIRMATION">Confirmation</option>
+									<option value="LOSE">Lose</option>
+								</select>
+							</div>
+							<div class="remarks-input-field-container">
+								<p> <b class="font-color-blue">Next Action</b></p>
+								<input class="form-input-field ng-pristine ng-untouched ng-valid ng-empty" type="date"
+									id="nextaction_{{$index}}">
+							</div>
+							<div class="remarks-input-field-container">
+								<p style="visibility: hidden">Next Action</p>
+								<button ng-click="lvm.sendRemark(query.appQueries,$index)" class="btn btn-primary">
+									Send</button>
+							</div>
+						</div>
+					</div>
+
+					<div ng-click="lvm.showEditPanel(query)"><i class="fa fa-caret-right right-arrow-icon"
+							aria-hidden="true"></i></div>
+
+					<div id="{{query.appQueries.id}}" class="conversation">
+						<!-- <div id="currentQueryDiv"> -->
+						<div class="remark-div custom-scroll" id="{{query.appQueries.id}}-remarkDiv">
+							<div class="remarks-container" id="lvm.currentQueryToMapped">
+								<div ng-repeat="cq in lvm.currentQuery.appQueriesRemarks"
+									class="remarks-individual-container">
+									<p class="user-name-container">{{cq.createdByName}}</p>
+									<p ng-bind-html="cq.remark | multiline"></p>
+									<p><b class="font-color-blue">Next Action</b> - {{cq.nextActiondate | date}} <b
+											class="font-color-blue">Status </b> - {{cq.status}}</p>
+
+								</div>
+
+							</div>
+						</div>
+						<!-- </div> -->
+					</div>
+
+					<p>{{lvm.showHideContentOnUserType()}}</p>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="two" id="ln-sticky-sidebar">
+			<div class="current-notes-div" style="font-size:15px;">NOTE'S
+				<button class="btn btn-primary" 
+					ng-click="lvm.getQueryNotesByQueryId(query.appQueries.id)">Refresh</a></button>
+			</div>
+
+			<div id="{{query.appQueries.id}}-notes" class="conversation">
+
+				<div class="remark-div custom-scroll" id="{{query.appQueries.id}}-notesDiv">
+					<div class="remarks-container">
+						<div ng-repeat="cq in lvm.currentQueryNotes.appQueriesNotes"
+							class="remarks-individual-container">
+							<p class="user-name-container">{{cq.createdByName}}</p>
+							<p ng-bind-html="cq.notes | multiline"></p>
+							<p><b class="font-color-blue">Date</b> - {{cq.nextActiondate | date}} </p>
+						</div>
+						<p>{{lvm.scrollBottom(query.appQueries.id)}}</p>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<textarea class="text-area-100p ng-pristine ng-untouched ng-valid ng-empty"
+					id="{{query.appQueries.id}}-note-input"></textarea>
+			</div>
+
+			<div class="remarks-flex-container">
+				<div class="remarks-input-field-container">
+					<p> <b class="font-color-blue">Date</b></p>
+					<input class="form-input-field ng-pristine ng-untouched ng-valid ng-empty" type="date"
+						id="{{query.appQueries.id}}-note-date">
+					<p style="visibility: hidden">Next Action</p>
+					<button ng-click="lvm.sendNotes(query.appQueries.id)" class="btn btn-primary"> Send</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!--Roles Modal -->
+<div class="modal fade" id="customerModels" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">User</h4>
+			</div>
+			<div class="modal-body">
+				<p></p>
+				<div id="checkboxes">
+
+					<!-- <div ng-repeat="user in lvm.customers">
+						<div class="role-and-input-container">
+							<p class="role-name-container">{{user.title+" "+user.firstName+" "+user.middleName+" "+user.lastName}}</p>
+							<input type="checkbox" style="margin: 0px" id="{{user.id}}" ng-model="lvm.customerId">
+						</div>
+
+					</div> -->
+
+					<select ng-model="lvm.selectedUSer" class="form-input-field">
+						<option ng-repeat="user in lvm.customers" value="{{user}}">
+							{{user.title+" "+user.firstName+" "+user.middleName+" "+user.lastName}}</option>
+					</select>
+				</div>
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="lvm.mapQeryToCustomer()">Update</button>
+				<button type="button" class="btn btn-danger">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!--Remark Modal -->
+<div class="modal fade" id="remarkModel" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Remark & Status</h4>
+			</div>
+			<div class="modal-body">
+
+				<div id="checkboxes">
+					<p><b class="font-color-blue">Remark</b></p>
+					<textarea rows="" cols="" ng-model="lvm.remark" style="height: 140px;"
+						class="form-input-field"></textarea>
+					<p><b class="font-color-blue">Status</b></p>
+					<select class="form-input-field" ng-model="lvm.status">
+						<option value="SELECT">Select</option>
+						<option value="PENDING">Pending</option>
+						<option value="QUOTED">Quoted</option>
+						<option value="FOLLOW UP">Follow up</option>
+						<option value="CONFIRMATION">Confirmation</option>
+						<option value="LOSE">Lose</option>
+					</select>
+					<p><b class="font-color-blue">Date of Next Action</b></p>
+					<input type="date" class="form-input-field" ng-model="lvm.dateOfNextAction" id="dateOfNextAction">
+				</div>
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="lvm.updateEnquiryRemark()">Update</button>
+				<button type="button" class="btn btn-danger">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>

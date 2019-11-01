@@ -1,0 +1,26 @@
+<div style="    margin: 30px;">
+    <button ng-click="lvm.navigateToCreatePackage()" class="timeslot-button">Create New</button>
+</div>
+
+
+<div class="packages-flex-container">
+    <div ng-repeat="package in lvm.packages" class="package-single-itemcontainer">
+        <div class="package-image-container">
+            <img ng-src="{{lvm.imageUrl+package.packageBanners[0].imageUrl}}" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/No_image_available_600_x_450.svg/600px-No_image_available_600_x_450.svg.png'" class="package-image-width-95perc">
+           
+        </div>
+        <div class="package-text-container">
+            <p class="package-title">{{package.packages.title}}</p>
+            <p class="package-title color-orange" >{{package.packages.night}} Nights / {{package.packages.days}} Days</p>
+        </div>
+        <div class="edit-delete-icon-container">
+            <!-- <span class="approve-button" ng-click="lvm.approvePackage(package.packages.id)" ng-show="package.packages.status==APPROVED" >Approve</span>
+            <span class="approve-button-checked" ng-show="package.status!=APPROVED"><i class="fa fa-check" aria-hidden="true"></i></span> -->
+            <!-- <span class="edit-delete-icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
+          
+                <span class="edit-delete-icon" ng-click="lvm.navigateToEditPackage(package.packages.name)"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                <!-- <span class="edit-delete-icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
+          
+        </div>
+    </div>
+</div>

@@ -1,0 +1,199 @@
+<link rel="stylesheet" href="angularjs/css/customerdetails.css">
+
+
+
+<div class="customer-details-container" >
+	<div class="customer-details-header-container" id="customerDetailsHeader">
+		<p class="customer-details-header-title-container">Customer Details</p>
+		<!-- <p id="customerMenu" class="glyphicon glyphicon-minus customer-details-header-title-container "></p> -->
+	</div>
+	<div class="customer-details-column-container" id="customerDetailsBlock">
+		<div class="customer-details-half-row-container">
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Name</div>
+				<div>{{lvm.customer.customer.title+" "+lvm.customer.customer.firstName+" "+lvm.customer.customer.middleName+" "+lvm.customer.customer.lastName}}</div>
+			</div>
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Email</div>
+				<div>{{lvm.customer.customer.emailId}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Contact No:</div>
+				<div>{{lvm.customer.customer.telNo}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Date of Birth:</div>
+				<div>{{lvm.customer.customer.dateOfBirth | date: "dd.MM.y"}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Company Name</div>
+				<div>{{lvm.customer.customer.companyName}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Designation</div>
+				<div>{{lvm.customer.customer.designation}}</div>
+			</div>
+
+		</div>
+
+		<div class="customer-details-half-row-container">
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Home Address</div>
+				<div>{{lvm.customer.customer.homeAddress}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Business Address</div>
+				<div>{{lvm.customer.customer.businessAddress}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">PassPort No</div>
+				<div>{{lvm.customer.customer.passPortNo}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Passport Issue Date</div>
+				<div>{{lvm.customer.customer.passportDateOfIssue | date}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Passport Expriry Date</div>
+				<div>{{lvm.customer.customer.passportDateOfExpriry | date}}</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+<div class="customer-details-container">
+	<div class="customer-details-header-container" id="spouseDetailsHeader">Spouse Details</div>
+	<div class="customer-details-column-container" id="spouseDetailsBlock">
+		<div class="customer-details-half-row-container">
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Spouse Name</div>
+				<div>{{lvm.customer.customer.spouseName}}</div>
+			</div>
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Spouse Birth Date</div>
+				<div>{{lvm.customer.customer.spouseBirthDate | date}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Spouse Passport No</div>
+				<div>{{lvm.customer.customer.spousePassportNo }}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Spouse Passport Issue Date</div>
+				<div>{{lvm.customer.customer.spousePassportDateOfIssue | date}}</div>
+			</div>
+
+
+
+		</div>
+
+		<div class="customer-details-half-row-container">
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Spouse Passport Expiry Date</div>
+				<div>{{lvm.customer.customer.spousePassportDateOfExpiry | date}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Spouse Contact No</div>
+				<div>{{lvm.customer.customer.spouseContactNo}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Spouse Email</div>
+				<div>{{lvm.customer.customer.spouseEmail}}</div>
+			</div>
+
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Wedding Anniversary</div>
+				<div>{{lvm.customer.customer.weddingAnniversary | date}}</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+<div class="customer-details-container">
+	<div class="customer-details-header-container" id="otherDetailsHeader">Other Details</div>
+	<div class="customer-details-column-container" id="otherDetailsBlock">
+		<div class="customer-details-half-row-container">
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">GSTIN No</div>
+				<div>{{lvm.customer.customer.gstinNo}}</div>
+			</div>
+		</div>
+
+		<div class="customer-details-half-row-container">
+			<div class="customer-title-and-data-container">
+				<div class="customer-details-title">Handicap</div>
+				<div>{{lvm.customer.customer.handicap}}</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="customer-details-container">
+		<div class="customer-details-header-container" id="visaDetailsHeader">Visa Details</div>
+		<div class="customer-details-column-container"  id="visaDetailsBlock">
+			<div class="customer-details-half-row-container">
+				
+				<div class="customer-title-and-data-container" ng-repeat="visa in lvm.customer.customerVisas">
+					<div class="customer-details-title">Country</div>
+					<div>{{visa.visaCountry}}</div>
+				</div>
+			</div>
+	
+			<div class="customer-details-half-row-container">
+				<div class="customer-title-and-data-container" ng-repeat="visa in lvm.customer.customerVisas">
+					<div class="customer-details-title">Expiry Date</div>
+					<div>{{visa.visaExpiryDate | date}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="customer-details-container">
+			<div class="customer-details-header-container" id="frequentDetailsHeader">Frequent Flyer Details</div>
+			<div class="customer-details-column-container" id="frequentDetailsBlock">
+				<div class="customer-details-half-row-container">
+					
+					<div class="customer-title-and-data-container" ng-repeat="flyer in lvm.customer.customerFrequentFlyers">
+						<div class="customer-details-title">Airlines</div>
+						<div>{{flyer.airlines}}</div>
+					</div>
+				</div>
+		
+				<div class="customer-details-half-row-container">
+					<div class="customer-title-and-data-container" ng-repeat="flyer in lvm.customer.customerFrequentFlyers">
+						<div class="customer-details-title">Number</div>
+						<div>{{flyer.frequentNumber}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="customer-details-container">
+				<div class="customer-details-header-container" id="interestDetailsHeader">Customer Interests</div>
+				<div class="customer-details-column-container" id="interestDetailsBlock" >
+					<div class="customer-details-half-row-container">
+						
+						<div class="customer-title-and-data-container" ng-repeat="int in lvm.customer.customerInterests">
+							<div class="customer-details-title">Interest</div>
+							<div>{{int.customerIntrest}}</div>
+						</div>
+					</div>
+			
+					
+				</div>
+			</div>

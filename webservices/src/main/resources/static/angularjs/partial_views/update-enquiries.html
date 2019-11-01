@@ -1,0 +1,165 @@
+<div class="form-header">
+    <h2>{{lvm.header}}</h2>
+</div>
+
+<form name="myForm" class="default-theme-width-container">
+    <div>
+        <h4>Customer Details :</h4>
+    </div>
+    <div class="form-container">
+
+        <div class="form-half-part-container">
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Guest Name*</div>
+                <div class="fomr-input-field-container">
+                    <input type="text" class="form-input-field" placeholder="" name="guestName" ng-model="lvm.enquiry.guestName" required>
+                    <p ng-show="myForm.guestName.$touched && myForm.guestName.$invalid" style="color: red;">This Field
+                        is
+                        required</p>
+                </div>
+            </div>
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Contact No*</div>
+                <div class="fomr-input-field-container">
+                    <input type="text" class="form-input-field" placeholder="" name="contact" ng-model="lvm.enquiry.contactNo" required>
+                    <p ng-show="myForm.contact.$touched && myForm.contact.$invalid" style="color: red;">This Field
+                        is required</p>
+                </div>
+            </div>
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Email Id</div>
+                <div class="fomr-input-field-container">
+                    <input type="email" class="form-input-field" placeholder="" name="emailId" ng-model="lvm.enquiry.emailId">
+
+                </div>
+            </div>
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Service</div>
+                <div class="fomr-input-field-container">
+                    <select class="form-input-field" ng-model="lvm.selectedService"
+                        ng-options="s.serviceName for s in lvm.serviceTypes"
+                        ></select>
+
+                </div>
+            </div>
+            <div class="fomr-label-and-input-container" ng-if="lvm.selectedService.id==4">
+                <div class="form-input-label">Visa</div>
+                <div class="fomr-input-field-container">
+                    <select class="form-input-field" ng-model="lvm.selectedVisaType"
+                        ng-options="v.visaTypeName for v in lvm.visaTypes"></select>
+
+
+
+                </div>
+            </div>
+            <div class="fomr-label-and-input-container" ng-if="lvm.selectedService.id!=4">
+                <div class="form-input-label">Destination</div>
+                <div class="fomr-input-field-container">
+                    <select class="form-input-field" ng-model="lvm.selectedDestination"
+                    ng-options="d.destinationTypeName for d in lvm.destinationTypes"></select>
+
+                </div>
+            </div>
+
+
+
+
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Sector</div>
+                <div class="fomr-input-field-container">
+                    <input type="text" class="form-input-field" placeholder="" ng-model="lvm.enquiry.sector">
+                </div>
+            </div>
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Traveling Date</div>
+                <div class="fomr-input-field-container">
+                    <input type="date" class="form-input-field" placeholder="" name="dateOfBirth"
+                        ng-model="lvm.enquiry.dateOfTravel" id="dateOfTravel">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-half-part-container">
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Adult</div>
+                <div class="fomr-input-field-container">
+                    <input type="number" string-to-number class="form-input-field" placeholder="" name="businessAddress"
+                        ng-model=" lvm.enquiry.adult">
+                </div>
+            </div>
+
+
+
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Child</div>
+                <div class="fomr-input-field-container">
+                    <input type="number" string-to-number class="form-input-field" placeholder="" name="companyName"
+                        ng-model="lvm.enquiry.child">
+                </div>
+            </div>
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Journey Type</div>
+                <div class="fomr-input-field-container">
+                        <select class="form-input-field" ng-model="lvm.selectedJouneyType"
+                        ng-options="j.journeyType for j in lvm.journeyType"></select>
+                </div>
+            </div>
+            <div class="fomr-label-and-input-container">
+                <div class="form-input-label">Journey</div>
+                <div class="fomr-input-field-container">
+                    <div class="input-flex-container">
+                        <div class="input-flex-cjild">
+                            <p>From </p>
+                            <input type="text" class="form-input-field" ng-model="lvm.enquiry.journeyFrom">
+                        </div>
+                        <div class="input-flex-cjild">
+                            <p>To </p>
+                            <input type="text" class="form-input-field" ng-model="lvm.enquiry.journeyTo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="button-container">
+        <p ng-show="myForm.title.$invalid || myForm.emailId.$invalid ||  myForm.firstName.$invalid ||  myForm.middleName.$invalid || myForm.telNo.$invalid "
+            style="color: red;">Please fill all the fields marked with *</p>
+        <buttton ng-click="lvm.addNewEnquiry()" class="add-button" ng-disabled="myForm.$invalid" disabled="disabled">
+                {{lvm.header}}</buttton>
+    </div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="formSubmissionModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{lvm.messageTitle}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{lvm.message}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

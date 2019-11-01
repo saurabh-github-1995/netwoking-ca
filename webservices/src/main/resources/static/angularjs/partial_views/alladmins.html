@@ -1,0 +1,89 @@
+<div class="customers-container">
+	<div class="customers-headers">
+		<h1>All Admin's</h1>
+	</div>
+
+	<div>
+		<a href="addadmin"><button class="add-button-theme">Add New</button></a>
+	</div>
+	<div>
+		<div class="flex-table-container">
+			<div class="headers-cell-25p">Name</div>
+			<div class="headers-cell-25p">Email Id</div>
+			<div class="headers-cell-25p">Contact No</div>
+
+			<div class="headers-cell-25p"></div>
+			<!-- <div class="headers-cell">Edit / Delete</div> -->
+		</div>
+		<div class="flex-cell-container" ng-repeat="x in lvm.admins">
+			<div class="row-cell-25p " ng-click="lvm.getCustomerDetails(x.id)">{{x.name}}</div>
+			<div class="row-cell-25p " ng-click="lvm.getCustomerDetails(x.id)">{{x.emailId}}</div>
+			<div class="row-cell-25p " ng-click="lvm.getCustomerDetails(x.id)">{{x.mobileNumber}}</div>
+			<div class="row-cell-25p " ng-click="lvm.getCustomerDetails(x.id)">
+				<span style=" cursor:pointer;"  ng-click="lvm.navigateToUpdateAdmin(x)"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+
+			</div>
+
+			<!-- <div class="row-cell">
+				<div class="edit-delete-button-container">
+					<p class="glyphicon glyphicon-pencil edit-delete-button-icon-container"></p>
+					<p class="glyphicon glyphicon-trash edit-delete-button-icon-container"></p>
+				</div>
+
+			</div> -->
+		</div>
+
+	</div>
+
+
+	<!-- <div class="birthdays-header">
+		<h3>Birthday's in this month</h3>
+	</div>
+	<div class="month-birthday-flex-container">
+		<div class="month-birthday-flex-item-container" ng-repeat="cust in lvm.birthdayCustomers">
+			<div ng-click="lvm.getCustomerDetails(cust.customer.id)">
+				<p>Name: {{cust.customer.firstName+" "+cust.customer.lastName}}</p>
+				<p>Birthday:{{cust.customer.dateOfBirth | date}}</p>
+			</div>
+		</div>
+	</div> -->
+
+	<div class="mob-customers">
+		<div ng-repeat="x in lvm.customers" class="mob-table-container">
+			<div class="mob-table-header">
+				<div ng-click="lvm.getCustomerDetails(x.id)">{{x.title}} {{x.firstName}} {{x.middleName}} {{x.lastName}}</div>
+				<!-- <div class="edit-delete-button-container">
+					<p class="glyphicon glyphicon-pencil edit-delete-button-icon-container"></p>
+					<p class="glyphicon glyphicon-trash edit-delete-button-icon-container"></p>
+				</div> -->
+			</div>
+			<div class="mob-table-row" ng-click="lvm.getCustomerDetails(x.id)">Email Id : {{x.emailId}}</div>
+			<div class="mob-table-row" ng-click="lvm.getCustomerDetails(x.id)">Contact No : {{x.telNo}}</div>
+			<div class="mob-table-row" ng-click="lvm.getCustomerDetails(x.id)">Company Name : {{x.companyName}}</div>
+		</div>
+
+	</div>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Confirmation</h4>
+			</div>
+			<div class="modal-body">
+				<p>Do u want To delete this customer?</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-danger"
+					ng-click="lvm.removeCustomer(lvm.requestedCustomerId)">Delete</button>
+			</div>
+		</div>
+
+	</div>
+</div>

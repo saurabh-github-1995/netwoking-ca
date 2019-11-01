@@ -1,0 +1,40 @@
+.zm-image-slider-container {}
+
+.zm-image-preview-container {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    overflow: hidden;
+    @include flexbox(( display: flex, justify-content: center, align-items: center));
+    @media screen and (max-width: 1200px) {
+        height: 150;
+    }
+}
+
+.zm-image-preview {
+    max-width: 95%;
+}
+
+.zm-image-thumbnails-container {
+    @include flexbox(( display: flex, flex-direction: row, justify-content: space-around, align-items: center));
+}
+
+.zm-image-thumbnail-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: 10px;
+    border: 1px solid gray;
+    cursor: pointer;
+    @include flexbox(( display: flex, justify-content: center, align-items: center, flex-shrink: 0));
+}
+
+.zm-image-thumbnail {
+    max-width: 95%;
+    max-height: 95%;
+}
+
+.zm-image-thumbnails-holder {
+    overflow: auto;
+    @include flexbox(( display: flex));
+}

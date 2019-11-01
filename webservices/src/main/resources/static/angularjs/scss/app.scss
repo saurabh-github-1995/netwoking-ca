@@ -1,0 +1,1172 @@
+@import "compass/css3/flexbox";
+@import "utilities.scss";
+@import "portalposts.scss";
+@import "wall.scss";
+@import "product-details.scss";
+
+/** Zugmug Global constants **/
+
+$color-text-yellow: #fbc100;
+@mixin inline-block-top {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+/** Global Styles **/
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+}
+
+* {
+    font-family: Roboto;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+/******** Base structure *********/
+
+
+/* Main wrapper*/
+
+.nv-page {
+    height: 100%;
+    @include flexbox(( display: flex, flex-direction: column, align-items: flex-start));
+    
+    font-size: 16px;
+    
+    @media screen and (max-width: 1024px){
+        font-size: 14px;
+    }
+    
+    @media screen and (max-width: 768px){
+        font-size: 12px;
+    }
+}
+
+
+/* Page Header*/
+
+.nv-header {
+    width: 100%;
+    @include flexbox(( align-self: flex-start));
+}
+
+.header-content {
+    padding: 10px;
+    background: #036553;
+    color: white;
+}
+
+
+/* Container to load partials*/
+
+.nv-page-content {
+    @include flexbox(( flex-grow: 1, flex-shrink: 0, flex-direction: column));
+    width: 100%;
+}
+
+.nv-page-middle-container {
+    @include flexbox(( display: flex, flex-direction: row));
+    width: 100%;
+    position:relative;
+    /*margin-top: 5px;*/
+}
+
+
+/* Page Footer*/
+
+.nv-footer {
+    @include flexbox(( align-self: flex-end));
+    width: 100%;
+    text-align: right;
+    font-size: 10px;
+    font-style: italic;
+    padding-right: 10px;
+}
+
+.nv-footer-content {
+    padding: 5px;
+    background: #1d4a39;
+    font-size: small;
+    color: white;
+}
+
+.nv-partial-view-container {
+    @include flexbox(( flex-grow: 1, flex-basis: 70%, display: flex, flex-direction: row, justify-content: space-around));
+    min-width: 0;
+    @media screen and (max-width: 1200px) {
+        @include flexbox(( flex-direction: column));
+    }
+}
+
+.zm-partial-view {
+    width: 100%;
+    
+    @media screen and (max-width: 1200px) {
+        /*width: 95%;
+        margin: auto;
+        padding: 10px;*/
+        width: 100%;
+        margin: auto;
+        
+    }
+}
+
+
+/****** Header styles *****/
+
+.nv-header-container {
+    /* padding: 10px; */
+    background: white;
+    /* margin-bottom: 5px; */
+    @include flexbox(( display: flex, flex-direction: row, align-content: flex-start, align-items: center));
+    justify-content:  space-between;
+}
+@media(max-width:700px){
+	.nv-portal-categories-container1{
+	display:none !important;
+	}
+
+}
+
+.nv-humburger-icon {
+    padding: 10px;
+    position:absolute;
+}
+
+.nv-logo {
+    height: 60px;
+    vertical-align: middle;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.nv-portal-name {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.zm-portal-subtitle{
+	font-size: 0.8em;
+}
+
+np-portal-title {
+    display: block;
+    font-style: italic;
+}
+
+.np-name-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.np-header-controls {
+    display: inline-block;
+    float: right;
+    margin-top: 15px;
+}
+
+.np-header-menu {
+    padding: 10px;
+   /* margin-left: auto;*/
+    @include flexbox(( flex-shrink: 0));
+    display:  flex;
+  	align-items:  center;
+}
+
+.np-profile-pic {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    vertical-align: middle;
+}
+
+.default-profile-pic {
+    background-image: url('../images/user-icon.png');
+}
+
+.np-header-content {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.nv-header-search {
+    width: 200px;
+    margin-left: auto;
+}
+
+
+/********************** Navigation Drawer **************/
+
+.nv-navigation-drawer-container {
+    width: 200px;
+    /* height: 100%; */
+    background: white;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 10px;
+    border-right: 1px solid #dadada;
+    @include flexbox(( flex-shrink: 0));
+}
+
+@media(max-width:500px){
+	.nv-navigation-drawer-container {
+		width: 130px;
+	}
+}
+
+.nv-navigation-drawer-header {
+    font-size: 16px;
+    color: #002f58;
+    margin-bottom: 5px;
+    padding-left: 22px;
+}
+
+.nv-navigation-drawer-separator {
+    height: 1px;
+    background: #002f58;
+    margin-bottom: 5px;
+}
+
+.nv-navigation-drawer-menu-item {
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #002f58;
+    font-weight: 200;
+    padding: 2px;
+}
+
+.nv-navigation-drawer-menu-item-selected {
+    background: #696766;
+    color: white;
+    /*&:hover {
+        background: burlywood;
+    }*/
+}
+
+.nv-navigation-drawer-menu-item:hover {
+    background: #696766;
+    color: white;
+}
+
+.np-loginlogout {
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+}
+
+
+/* Header login/logout section*/
+
+.np-name-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.np-header-controls {
+    display: inline-block;
+    float: right;
+    vertical-align: middle;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+/************** App Theme styles ***************/
+
+
+/*Page content*/
+
+.np-page-content {
+    width: 80%;
+    margin: 10px auto;
+}
+
+
+/* Forms */
+
+.np-form {
+    width: 400px;
+    margin: 30px auto;
+    @media screen and (max-width: 600px) {
+        width: 95%;
+    }
+}
+
+.textbox {
+    width: 98%;
+    height: 25px;
+}
+
+.textarea {
+    width: 98%;
+}
+
+.error-block {
+    margin-top: 5px;
+    color: red;
+    font-size: small;
+}
+
+.msg-block {
+    margin-top: 5px;
+    color: green;
+}
+
+.control {
+    width: 100%;
+}
+
+.control-wrapper {
+    margin: 10px;
+}
+
+.np-button {
+    width: 100%;
+    height: 30px;
+    background: white;
+    font-size: medium;
+}
+
+.np-link {
+    font-size: small;
+    color: #1a756e;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+/* Special page title 
+for pages having lot of 
+empty space*/
+
+.special-page-title {
+    text-align: center;
+    font-size: xx-large;
+    padding: 30px;
+    color: #1f2709;
+}
+
+
+/*Lists*/
+
+.list-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background: #f7fffb;
+}
+
+.list-item-title {
+    font-weight: bold;
+    font-size: medium;
+}
+
+.list-item-text {
+    font-size: small;
+}
+
+.list-title {
+    font-weight: bolder;
+    color: white;
+    padding: 5px;
+    background: #0d4032;
+    margin-bottom: 10px;
+}
+
+.list-header-button {
+    float: right;
+    font-size: small;
+    cursor: pointer;
+}
+
+.list-item-button {
+    font-size: small;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px;
+    display: inline-block;
+    border: solid 1px;
+    background: white;
+    border-radius: 2px;
+    margin: 2px;
+}
+
+.list-item-text-section {
+    width: 80%;
+    display: inline-block;
+}
+
+.list-item-action-section {}
+
+.list-error-message {
+    font-size: small;
+    padding: 5px;
+    color: red;
+    background: white;
+}
+
+
+/*Dialogs*/
+
+.confirmation-dialog {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 330px;
+    margin-left: -165px;
+    background: black;
+    z-index: 9999;
+    padding: 10px;
+    text-align: center;
+    background: white;
+    border: 1px solid gray;
+}
+
+.dialog-button {
+    width: 150px !important;
+}
+
+.dialog-message {
+    margin: 10px auto;
+}
+
+
+/*Busy Indicator*/
+
+
+/* Overlay */
+
+.busy-indicator-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: white;
+    opacity: 0.4;
+    z-index: 9998;
+}
+
+
+/* Spinner */
+
+.busy-indicator-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+}
+
+
+/*Grid*/
+
+.grid-item-image-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.grid-item-image {
+    max-width: 95%;
+    max-height: 95%;
+}
+
+.img-border {
+    border: 1px solid #021a40;
+}
+
+/*body {
+    background: rgb(246, 246, 246);
+}*/
+
+.grid-item {
+    display: inline-block;
+    margin: 5px;
+    background: rgb(246, 246, 246);
+    padding: 10px;
+    cursor: pointer;
+    width: 210px;
+}
+
+.grid-item-image-container {
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+    border: 1px solid #BDBDBD;
+    box-shadow: 0px 1px 1px -1px #777;
+    overflow: hidden;
+    @include flexbox(( display: flex, justify-content: center, align-items: center));
+}
+
+.grid-container {
+    margin: 5px;
+    text-align: center;
+}
+
+.grid-item-tag {
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #424141;
+    padding: 8px;
+    color: white;
+}
+
+.grid-item-tags {
+    height: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 7px;
+    padding: 5px;
+}
+
+$font-size-title: 16px;
+$line-height-title: 1.2;
+$lines-to-show-title: 2;
+.grid-item-title {
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    height: $font-size-title*$line-height-title*$lines-to-show-title;
+    /* Fallback for non-webkit */
+    font-size: $font-size-title;
+    line-height: $line-height-title;
+    -webkit-line-clamp: $lines-to-show-title;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    color: #585858;
+    margin-top: 8px;
+}
+
+
+/*.grid-item-title:hov{
+	text-overflow: inherit;
+	overflow: visible;
+}*/
+
+$font-size-product-description: 13px;
+$line-height-product-description: 1.1;
+$lines-to-show-product-description: 3;
+.grid-item-text {
+    font-size: $font-size-product-description;
+    height: 70px;
+    margin: 10px 0px;
+}
+
+
+/*.grid-item-text:hov{
+	text-overflow: inherit;
+	overflow: visible;
+}*/
+
+.line-separator {
+    height: 1px;
+    background: #BDBDBD;
+    border-bottom: 1px solid #BDBDBD;
+    padding-top: 0.5px;
+    padding-bottom: 0.5px;
+    width: 100%;
+}
+
+.grid-item-feature {
+    font-size: medium;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #8A0808;
+    padding-left: 5px;
+}
+
+.zm-product-catalog {
+    text-align: center;
+    font-size: 22px;
+    font-family: cursive;
+    color: gray;
+}
+
+/************* Register page styles *********/
+
+.box-effect {
+    box-shadow: 1px 3px 3px -1px #777;
+}
+
+.summary {
+    /*background-color: #f7f7f7;*/
+    color: black;
+    font-size: 1.1em;
+    padding: 10px;
+    
+    width: 70%;
+    text-align: justify;
+    margin: auto;
+    margin-top: 40px;
+}
+
+ @media(max-width:1150px){
+ 	.summary{
+ 		width: 90%;
+ 		margin-top: 40px;
+ 	}
+ }
+
+.panel {
+    margin-bottom: 10px;
+}
+
+
+/************** Login page styles **********/
+
+
+/************* Landing page styles **********/
+
+.landing-page-wrapper {
+    height: 700px;
+    background-size: cover;
+    background-image: url(../images/zugmug.jpg);
+    padding: auto auto;
+}
+
+
+/************ Home page styles **************/
+
+.nv-home-search-bar {
+    width: 95%;
+    margin: 10px auto;
+}
+
+
+/**************** Portal Home page ***************/
+
+.zm-portal-name {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.zm-portal-tagline {
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.phs-portal-description {
+    padding: 10px;
+    background: #ebfff8;
+}
+
+
+/** Portal categories bar **/
+
+.nv-portal-categories-container {
+   /* padding: 10px;*/
+    /*background: #444;*/
+    text-align: center;
+   /* margin-bottom: 5px;*/
+    overflow: auto;
+    @include flexbox(( display: flex, flex-direction: row, flex-wrap: nowrap));
+    @media screen and (max-width: 600px) {
+        padding: 5px;
+    }
+}
+
+.zm-menus-holder {
+    margin: auto;
+    @include flexbox(( display: flex, flex-direction: row, flex-wrap: nowrap));
+}
+
+.nv-portal-category-item {
+    padding: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    @media screen and (max-width: 600px) {
+        padding: 5px;
+    }
+    display: inline-block;
+    color: black;
+}
+
+.nv-portal-category-item-selected {
+    border-bottom: #b9ed03  3px solid;
+    
+}
+@media(max-width:700px){
+.nv-portal-category-item-selected{
+	background-color: #a6a99e;
+    /* padding: 16px; */
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: #b9ed03 0px solid;
+	}
+}
+
+
+/*************** Product Details page **********/
+
+.pds-portal-details-wrapper {
+    text-align: center;
+}
+
+.pds-product-name {
+    font-weight: bold;
+    font-size: large;
+}
+
+.pds-product-description {
+    font-size: small;
+    font-style: italic;
+}
+
+.pds-product-specification {
+    font-size: small;
+}
+
+.pds-product-price {
+    font-size: small;
+    font-weight: bold;
+}
+
+.img-wrap {
+    position: relative;
+    display: inline-block;
+    border: 1px black solid;
+    font-size: 0;
+}
+
+.img-wrap .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+    background-color: #FFF;
+    padding: 5px 2px 2px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: .2;
+    text-align: center;
+    font-size: 22px;
+    line-height: 10px;
+    border-radius: 50%;
+}
+
+.img-wrap:hover .close {
+    opacity: 1;
+}
+
+
+/*Modal Pop up styles */
+
+.ng-modal-overlay {
+    /* A dark translucent div that covers the whole screen */
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.8;
+}
+
+.ng-modal-dialog {
+    /* A centered div above the overlay with a box shadow. */
+    z-index: 10000;
+    position: fixed;
+    width: 50%;
+    /* Default */
+    /* Center the dialog */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 4px 4px 80px #000;
+    @media (max-width: 1000px) {
+        width: 95%;
+    }
+}
+
+.ng-modal-dialog-content {
+    padding: 10px;
+    text-align: left;
+}
+
+.ng-modal-close {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 120%;
+    display: inline-block;
+    font-weight: bold;
+    font-family: 'arial', 'sans-serif';
+}
+
+.select2>.select2-choice.ui-select-match {
+    /* Because of the inclusion of Bootstrap */
+    height: 29px;
+}
+
+.selectize-control>.selectize-dropdown {
+    top: 36px;
+}
+
+
+/* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
+
+.select-box {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.alert-info.positioned {
+    margin-top: 1em;
+    position: relative;
+    z-index: 10000;
+    /* The select2 dropdown has a z-index of 9999 */
+}
+
+.ddlDropdown {
+    width: 98%;
+    height: 25px;
+}
+
+#primary_nav_wrap {
+    margin-top: 15px;
+}
+
+#primary_nav_wrap ul {
+    list-style: none;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#primary_nav_wrap ul a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 32px;
+    padding: 0 15px;
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#primary_nav_wrap ul li {
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#primary_nav_wrap ul li.current-menu-item {
+    background: #ddd;
+    z-index: 1000;
+}
+
+#primary_nav_wrap ul li:hover {
+    background: #f6f6f6;
+}
+
+#primary_nav_wrap ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    padding: 0;
+}
+
+#primary_nav_wrap ul ul li {
+    float: none;
+    width: 200px;
+}
+
+#primary_nav_wrap ul ul a {
+    line-height: 120%;
+    padding: 10px 15px;
+}
+
+#primary_nav_wrap ul ul ul {
+    top: 0;
+    left: 100%;
+}
+
+#primary_nav_wrap ul li:hover>ul {
+    display: block;
+}
+
+.notify-block {
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    top: 50%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: 0 auto;
+}
+
+.np-badge {
+    height: 32px;
+    width: 32px;
+}
+
+.np-badge-overlay {
+    z-index: 10;
+    position: absolute;
+}
+
+
+/*Div center of Screen*/
+
+.container-table {
+    height: 100%;
+}
+
+.container-table {
+    display: table;
+}
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/*Error*/
+
+.has-error {
+    color: red;
+    font-size: 11px;
+}
+
+.logo-half-block {
+    margin-top: -100px;
+}
+
+.centered {
+    position: fixed;
+    top: calc(50% + 75px);
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.highlight-block {
+    z-index: 10;
+}
+
+.landing-page-bg {
+    background: url('../images/bg-landing-page.png');
+    background-repeat: repeat;
+    background-color: #DBDBDB;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    background-size: contain;
+    top: 0;
+    position: fixed;
+}
+
+.brown-color {
+    color: #310C0C;
+}
+
+.navbar {
+    min-height: 75px;
+    margin-bottom: 0;
+}
+
+.navbar-nav>li>a {
+    line-height: 40px;
+}
+
+.navbar-background {
+    /*background-image: url('../images/top-bg.jpg');*/
+    background-image: url('../images/bg-top.png');
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus {
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.white-color {
+    color: white !important;
+}
+
+.navbar-title {
+    display: inline-block;
+}
+
+.navbar-logo {
+    height: 40px;
+    display: inline-block;
+}
+
+.navbar-title-summary {
+    font-size: 14px;
+}
+
+.no-top {
+    top: 0 !important;
+}
+
+.no-margin-top {
+    margin-top: 0 !important;
+}
+
+.width-75 {
+    width: 75% !important;
+}
+
+.width-10 {
+    width: 10% !important;
+    padding: 0 !important;
+}
+
+
+/*#dvProducts{
+    max-height: 400px;
+    overflow-y: scroll;
+}*/
+
+.product-category-item {
+    padding: 5px;
+    color: black;
+}
+
+.product-details-page {
+    padding: 10px;
+}
+
+
+/************ Error Page ***********/
+
+.error-page {
+    text-align: center;
+    padding: 20px;
+    color: red;
+    font-size: larger;
+}
+
+@media (max-width: 600px) {
+    .nv-header-container {
+        padding: 0px;
+    }
+    .np-header-menu {
+        padding: 5px;
+    }
+    .nv-logo {
+        height: 40px;
+        margin-right: 5px;
+    }
+    .nv-humburger-icon {
+        padding: 5px;
+    }
+    .nv-header-search {
+        font-size: 10px;
+    }
+}
+
+.zm-wall-container {
+    width: 25%;
+    background: rgba(202, 200, 200, 0.41);
+    margin: 0px 10px;
+    padding: 10px;
+    @include flexbox(( flex-grow: 0, flex-shrink: 0, align-self: stretch));
+    @media screen and (max-width: 1200px) {
+        width: 95%;
+        margin: 10px auto;
+    }
+    .zm-wall-title {
+        margin: 10px;
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+    }
+}
+
+.zm-portal-sliders-container {
+    /*height: 400px;*/
+    overflow: hidden;
+    @include flexbox(( display: flex, justify-content: center, align-items: center));
+    @media screen and (max-width: 600px) {
+        /*height: 200px;*/
+    }
+}
+
+img.zm-portal-slide {
+    width: 100%;
+    display: block;
+    height:100%;
+}
+
+@media(max-width:449px){
+	.grid-item {
+    	width: 95%;
+	}
+	.grid-item-image-container {
+    width: 100%;
+    height: 100%;
+    }
+}
+
+.vendor-portal-hamburger-menu{
+	margin-right: 10px;
+	display:none;
+}
+@media(max-width:700px){
+	.vendor-portal-hamburger-menu{
+		display:block;
+	}
+}
+.hamburger-content{
+	display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    margin-top: 7px;
+    width: 250px;
+    margin-left: -167px;
+    background-color: white;
+    text-align: center;
+    border: 1px solid #a6a99e;
+}
+.vendor-portal-responsive-images{
+	max-width: 100%;
+    height: auto;
+    padding: 5px;
+}

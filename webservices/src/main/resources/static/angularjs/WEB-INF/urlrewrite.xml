@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlrewrite default-match-type="wildcard">
+	<rule>
+		<from>/registerCustomer</from>
+		<to>/index.jsp</to>
+	</rule>
+</urlrewrite>

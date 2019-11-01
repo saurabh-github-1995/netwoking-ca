@@ -1,0 +1,261 @@
+<div class="form-header">
+	<h2>Add Package</h2>
+</div>
+
+<form name="myForm" novalidate class="form-container-white">
+	<div class="form-inner-header">
+		<h4>Package Details :</h4>
+	</div>
+	<div class="form-container">
+
+		<div class="form-half-part-container">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Package Title*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder="" name="name" ng-model="lvm.package.title"
+						required>
+					<p ng-show="myForm.name.$touched && myForm.name.$invalid" style="color: red;">This Field is required
+					</p>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Package Name*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder="" name="mob" ng-model="lvm.package.name"
+						required>
+					<p ng-show="myForm.mob.$touched && myForm.mob.$invalid" style="color: red;">This Field is required
+					</p>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Package Category*</div>
+				<div class="fomr-input-field-container">
+					<!-- <input type="text" class="form-input-field" placeholder="" name="tel" ng-model="lvm.tel"> -->
+					<select ng-model="lvm.package.categoryId" class="form-input-field"
+						ng-options="x for x in lvm.categoriesOptions">
+					</select>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Validity</div>
+				<div class="fomr-input-field-container">
+					<input type="date" class="form-input-field" placeholder="" name="birthDate"
+						ng-model="lvm.package.validity">
+				</div>
+			</div>
+
+
+
+
+
+		</div>
+		<div class="form-half-part-container">
+
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Total Nights</div>
+				<div class="fomr-input-field-container">
+
+					<input type="number" class="form-input-field" placeholder="" name="email"
+						ng-model="lvm.package.night" required>
+				</div>
+				<!--<div>
+					<div class="">No of Days</div>
+					<input type="number" class="form-input-field" placeholder=""
+						name="email" ng-model="lvm.package.days" required>
+				</div>
+				<div>
+					<div class="">No of Nights</div>
+					<input type="number" class="form-input-field" placeholder=""
+						name="email" ng-model="lvm.package.night" required>
+				</div>-->
+
+				<!--<div class="fomr-input-field-container">
+                        
+                        <p ng-show="myForm.email.$touched && myForm.email.$invalid" style="color: red;">This Field is required. Please
+                            enter proper email</p>
+                    </div>-->
+			</div>
+
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Country</div>
+				<div class="fomr-input-field-container">
+
+					<select ng-model="lvm.selectedCountry" class="form-input-field"
+						ng-options="x.name for x in lvm.countries"  ng-init="lvm.selectedCountry.name=Albania"
+						ng-change="lvm.getRegionsByCountry(lvm.selectedCountry.id)"></select>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Regions</div>
+				<div class="fomr-input-field-container">
+
+					<select ng-model="lvm.selectedRegion" class="form-input-field" ng-options="x.name for x in lvm.regions"
+						ng-change="lvm.getCitiesByRegions(lvm.selectedRegion.id)"></select>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Cities</div>
+				<div class="fomr-input-field-container">
+
+					<select ng-model="lvm.selectedCity" class="form-input-field"
+						ng-options="x.name for x in lvm.cities"></select>
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+	<div class="separation-div"></div>
+	<div class="form-container">
+
+		<div class="form-half-part-container">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Inclusion</div>
+				<div class="fomr-input-field-container">
+					<!-- <input type="date" class="form-input-field" placeholder="" name="birthDate" ng-model="lvm.birthDate"> -->
+					<textarea rows="6" cols="" class="form-input-field-textarea"
+						ng-model="lvm.package.inclusion"></textarea>
+				</div>
+			</div>
+
+		</div>
+		<div class="form-half-part-container">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Exclusion</div>
+				<div class="fomr-input-field-container">
+					<!-- <input type="date" class="form-input-field" placeholder="" name="birthDate" ng-model="lvm.birthDate"> -->
+					<textarea rows="6" cols="" class="form-input-field-textarea"
+						ng-model="lvm.package.exlusion"></textarea>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+
+	<div class="button-container">
+		<!-- <p ng-show="myForm.name.$invalid || myForm.mob.$invalid ||  myForm.email.$invalid ||  myForm.userName.$invalid || myForm.password.$invalid "
+		 style="color: red;">Please fill all the fields marked with *</p> -->
+		<!-- <input class="add-button" type="submit" value="Add"
+			ng-disabled="myForm.$invalid1"
+			ng-click="lvm.uploadImageAndPackage()" /> -->
+		<button class="add-button" ng-disabled="myForm.$invalid1"
+			ng-click="lvm.uploadImageAndPackage()">{{lvm.addUpdatePackageButton}}</button>
+	</div>
+
+</form>
+
+<div class="form-container-white">
+	<div class="form-inner-header">
+		<h4>Banner Image </h4>
+
+
+	</div>
+	<input id="uploadImage" type="file" name="myPhoto" ng-model="lvm.package.bannerImage"
+		onchange="angular.element(this).scope().PreviewImage(this)" />
+	<div class="product-tag-preview-image-container display-none">
+		<div class="position-relative ">
+			<img id="uploadPreview" class="product-tag-image " />
+			<img src="angularjs/images/cross.png" class="cross-png" ng-click="lvm.removeImage()">
+		</div>
+	</div>
+	<div class="product-tag-preview-image-container">
+
+
+
+		<div ng-repeat="image in lvm.bannerImages">
+			<div class="position-relative">
+				<img class="product-tag-image" ng-src="{{lvm.imageUrl+image.imageUrl}}" />
+				<img src="angularjs/images/cross.png" class="cross-png" ng-click="lvm.deleteImage(image.id)">
+			</div>
+		</div>
+
+		<!-- <div class="position-relative">
+				<img id="uploadPreview1" class="product-tag-image" />
+				<img src="angularjs/images/cross.png" class="cross-png" ng-click="lvm.removeImage()">
+		</div> -->
+
+
+	</div>
+	<div style="text-align: center;">
+		<button class="add-button" ng-click="lvm.uploadimage()">Upload</button>
+	</div>
+</div>
+
+<div class="form-container-white" ng-if="lvm.showIternary">
+	<div ng-repeat="day in lvm.daysArray" class="days-container">
+		<div>
+			<div class="day-heading-and-button-container">
+				<div>
+					<p class="day-header">Day - {{day.dayNo}}</p>
+				</div>
+				<div>
+					<button ng-click="lvm.addTimeSlot(day.dayNo)" class="timeslot-button">Timeslot <i class="fa fa-plus"
+							aria-hidden="true"></i></button>
+				</div>
+				
+
+			</div>
+			<div class="day-image-headers-container">
+				<div>
+					<h5>Day Image</h5>
+					<input type="file" onchange="angular.element(this).scope().PreviewImageForIternary(this,this.id)"
+						id="day-{{day.dayNo}}-image">
+						
+					<div class="product-tag-preview-image-container display-none" id="day-{{day.dayNo}}-image-preview-container">
+						<div class="position-relative">
+							<img id="day-{{day.dayNo}}-image-preview" class="product-tag-image" />
+							<img src="angularjs/images/cross.png" class="cross-png">
+						</div>
+					</div>
+					<div class="product-tag-preview-image-container display-none" id="day-{{day.dayNo}}-old-image-container">
+						<div class="position-relative">
+							<img class="product-tag-image" id="day-{{day.dayNo}}-old-image" />
+							<img src="angularjs/images/cross.png" class="cross-png" ng-click="lvm.removeOldIternaryImage(day.dayNo)">
+						</div>
+					</div>
+					<div style="">
+						<button class="add-button" ng-click="lvm.uploadimageForIternary(day.dayNo)" id="day-{{day.id}}">Upload Image</button>
+					</div>
+				</div>
+			</div>
+			<div id="day-{{day.dayNo}}-container">
+				<div>
+
+					<div>From : <input type="time" id="day-{{day.dayNo}}-slot-1-fromTime-1"> To : <input type="time"
+							id="day-{{day.dayNo}}-slot-1-toTime-1"></div>
+					<div><textarea rows="3" class="iternary-textarea" id="day-{{day.dayNo}}-slot-1-iternary"></textarea>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div style="text-align: center;" ng-if="lvm.showIternary">
+	<button class="add-button" ng-click="lvm.addUpdateIternary()">{{lvm.updateIternary}}</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="formSubmissionModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">{{lvm.messageTitle}}</h4>
+			</div>
+			<div class="modal-body">
+				<p>{{lvm.message}}</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>

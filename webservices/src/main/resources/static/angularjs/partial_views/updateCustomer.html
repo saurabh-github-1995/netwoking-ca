@@ -1,0 +1,397 @@
+<div class="form-header">
+	<h2>{{lvm.headerLabel}}</h2>
+</div>
+
+<form name="myForm" class="default-theme-width-container">
+	<div>
+		<h4>User Details :</h4>
+	</div>
+	<div class="form-container">
+
+		<div class="form-half-part-container">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Title*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="title" ng-model="lvm.customer.title" required>
+					<p ng-show="myForm.title.$touched && myForm.title.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">First Name*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="firstName" ng-model="lvm.customer.firstName" required>
+					<p ng-show="myForm.firstName.$touched && myForm.firstName.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Middle Name*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="middleName" ng-model="lvm.customer.middleName" required>
+					<p
+						ng-show="myForm.middleName.$touched && myForm.middleName.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Last Name*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="lastName" ng-model="lvm.customer.lastName" required>
+					<p
+						ng-show="myForm.middleName.$touched && myForm.middleName.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Contact No*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="telNo" ng-model="lvm.customer.telNo" required>
+					<p ng-show="myForm.telNo.$touched && myForm.telNo.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Email Id*</div>
+				<div class="fomr-input-field-container">
+					<input type="email" class="form-input-field" placeholder=""
+						name="emailId" ng-model="lvm.customer.emailId" required>
+					<p ng-show="myForm.emailId.$touched && myForm.emailId.$invalid"
+						style="color: red;">PLease enter proper email id</p>
+
+
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Home Address</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="homeAddress" ng-model="lvm.customer.homeAddress">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Date Of Birth</div>
+				<div class="fomr-input-field-container">
+					<input type="date" class="form-input-field" placeholder=""
+						name="dateOfBirth" ng-model="lvm.customer.dateOfBirth" id="dateOfBirth">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Business Address</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="businessAddress" ng-model="lvm.customer.businessAddress">
+				</div>
+			</div>
+
+		</div>
+		<div class="form-half-part-container">
+			
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Company Name</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="companyName" ng-model="lvm.customer.companyName">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Designation</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="designation" ng-model="lvm.customer.designation">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Passport No</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="passPortNo" ng-model="lvm.customer.passPortNo">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Passport Issue Date</div>
+				<div class="fomr-input-field-container">
+					<input type="date" class="form-input-field" placeholder=""
+						name="passportDateOfIssue" ng-model="lvm.customer.passportDateOfIssue " id="issueDate" >
+
+						
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Passport Expiry Date</div>
+				<div class="fomr-input-field-container">
+					<input type="date" class="form-input-field" placeholder=""
+						name="passportDateOfExpriry" ng-model="lvm.customer.passportDateOfExpriry " id="expiryDate">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Username</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="passportDateOfExpriry" ng-model="lvm.customer.username">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Password</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="passportDateOfExpriry" ng-model="lvm.customer.password">
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+
+	<div style="margin-top: 50px;">
+		<h4>Spouse Details :</h4>
+	</div>
+	<div class="form-container">
+
+		<div class="form-half-part-container">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Spouse Name</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="spouseName" ng-model="lvm.customer.spouseName">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Spouse Birth Date</div>
+				<div class="fomr-input-field-container">
+					<input type="date" class="form-input-field" placeholder=""
+						name="spouseBirthDate" ng-model="lvm.customer.spouseBirthDate" id="spouseBirthDate">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Wedding Anniversary</div>
+				<div class="fomr-input-field-container">
+					<input type="date" class="form-input-field" placeholder=""
+						name="weddingAnniversary" ng-model="lvm.customer.weddingAnniversary" id="anniversary">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Spouse Passport No</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="spousePassportNo" ng-model="lvm.customer.spousePassportNo">
+				</div>
+			</div>
+
+
+		</div>
+		<div class="form-half-part-container">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Spouse Passport Issue Date</div>
+				<div class="fomr-input-field-container">
+					<input type="date" class="form-input-field" placeholder=""
+						name="spousePassportDateOfIssue"
+						ng-model="lvm.customer.spousePassportDateOfIssue" id="spousePassportDateOfIssue">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Spouse Passport Expiry Date</div>
+				<div class="fomr-input-field-container">
+					<input type="date" class="form-input-field" placeholder=""
+						name="spousePassportDateOfExpiry"
+						ng-model="lvm.customer.spousePassportDateOfExpiry" id="spousePassportDateOfExpiry">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Spouse Contact No</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="spouseContactNo" ng-model="lvm.customer.spouseContactNo">
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Spouse Email</div>
+				<div class="fomr-input-field-container">
+					<input type="email" class="form-input-field" placeholder=""
+						name="spouseEmail" ng-model="lvm.customer.spouseEmail">
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+	<div style="margin-top: 50px;">
+		<h4>Other Details :</h4>
+	</div>
+	<div class="form-container">
+
+		<div class="form-half-part-container">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Handicap No</div>
+				<div class="fomr-input-field-container">
+					<input type="number" class="form-input-field" placeholder=""
+						name="handicap" ng-model="lvm.customer.handicap">
+				</div>
+			</div>
+
+
+		</div>
+		<div class="form-half-part-container">
+
+
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">GSTIN No</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="gstinNo" ng-model="lvm.customer.gstinNo">
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+	<div class="form-header-with-add-button">
+		<h4>Visa Details :</h4>
+		<h4 class="glyphicon glyphicon-plus add-button" id="visaButton"></h4>
+	</div>
+	<div class="form-container">
+
+		<div class="form-half-part-container" id="visaCountry">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Country</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="handicap" ng-model="lvm.country1" id="visaCountry1">
+				</div>
+			</div>
+
+
+		</div>
+		<div class="form-half-part-container" id="visaExpiryDate">
+
+
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Expiry Date</div>
+				<div class="fomr-input-field-container">
+					<input type="Date" class="form-input-field" placeholder=""
+						name="gstinNo" ng-model="lvm.visaExpiryDate1" id="visaExpiryDate1">
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+	<div class="form-header-with-add-button">
+		<h4>Frequent Flyer Details :</h4>
+		<h4 class="glyphicon glyphicon-plus add-button" id="frequentFlyer"></h4>
+	</div>
+	<div class="form-container">
+
+		<div class="form-half-part-container" id="frequentFlyerAirline">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Airline</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="handicap" ng-model="lvm.airlines1" id="flyerAirline1">
+				</div>
+			</div>
+
+
+		</div>
+		<div class="form-half-part-container" id="frequentFlyerNumber">
+
+
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Number</div>
+				<div class="fomr-input-field-container">
+					<input type="number" class="form-input-field" placeholder=""
+						name="gstinNo" ng-model="lvm.flyerNumber1" id="flyerNumber1">
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+	<div class="form-header-with-add-button">
+		<h4>User Interests :</h4>
+
+	</div>
+	<div class="form-container">
+
+		<div class="form-half-part-container" id="frequentFlyerAirline">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Interests</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="handicap" ng-model="lvm.interests">
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+	</div>
+	<div class="form-header-with-add-button">
+		<h4>Reference :</h4>
+
+	</div>
+	<div class="form-container">
+
+		<div class="form-half-part-container" id="frequentFlyerAirline">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Reference</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="handicap" ng-model="lvm.reference">
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+	</div>
+
+	<div class="button-container">
+		<p
+			ng-show="myForm.title.$invalid || myForm.emailId.$invalid ||  myForm.firstName.$invalid ||  myForm.middleName.$invalid || myForm.telNo.$invalid "
+			style="color: red;">Please fill all the fields marked with *</p>
+		<buttton ng-click="lvm.registerCustomer()" class="add-button" ng-disabled="myForm.$invalid" disabled="disabled">{{lvm.buttonLabel}}</buttton>
+	</div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="formSubmissionModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">{{lvm.messageTitle}}</h4>
+			</div>
+			<div class="modal-body">
+				<p>{{lvm.message}}</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>

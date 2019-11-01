@@ -1,0 +1,130 @@
+<div class="form-header">
+	<h2>{{lvm.headerLabel}}</h2>
+</div>
+
+<form name="myForm" class="default-theme-width-container">
+	<div>
+		<h4>Company Details :</h4>
+	</div>
+	<div class="form-container">
+
+		<div class="form-half-part-container">
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Full Name*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="name" ng-model="lvm.companydetails.name" required>
+					<p ng-show="myForm.name.$touched && myForm.name.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+			
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Company Name*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="companyName" ng-model="lvm.companydetails.companyName" required>
+					<p ng-show="myForm.companyName.$touched && myForm.companyName.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+			
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Mobile No*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="telNo" ng-model="lvm.companydetails.telNo" required>
+					<p ng-show="myForm.telNo.$touched && myForm.telNo.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Email Id*</div>
+				<div class="fomr-input-field-container">
+					<input type="email" class="form-input-field" placeholder=""
+						name="emailId" ng-model="lvm.companydetails.emailId" required>
+					<p ng-show="myForm.emailId.$touched && myForm.emailId.$invalid"
+						style="color: red;">PLease enter proper email id</p>
+
+
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Category*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="homeAddress" ng-model="lvm.companydetails.homeAddress">
+				</div>
+			</div>
+			
+	  </div>
+		<div class="form-half-part-container">
+			
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Location*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="location" ng-model="lvm.companydetails.location">
+					<p ng-show="myForm.location.$touched && myForm.location.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Grade*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="grade" ng-model="lvm.companydetails.grade">
+					<p ng-show="myForm.grade.$touched && myForm.grade.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Designation*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="designation" ng-model="lvm.companydetails.designation">
+					<p ng-show="myForm.designation.$touched && myForm.designation.$invalid"
+						style="color: red;">This Field is required</p>
+						
+				</div>
+			</div>
+			<div class="fomr-label-and-input-container">
+				<div class="form-input-label">Department*</div>
+				<div class="fomr-input-field-container">
+					<input type="text" class="form-input-field" placeholder=""
+						name="department" ng-model="lvm.companydetails.department">
+					<p ng-show="myForm.department.$touched && myForm.department.$invalid"
+						style="color: red;">This Field is required</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="button-container">
+		<p
+			ng-show="myForm.title.$invalid || myForm.emailId.$invalid ||  myForm.firstName.$invalid ||  myForm.middleName.$invalid || myForm.telNo.$invalid "
+			style="color: red;">Please fill all the fields marked with *</p>
+		<buttton ng-click="lvm.registerCustomer()" class="add-button" ng-disabled="myForm.$invalid" disabled="disabled">{{lvm.buttonLabel}}</buttton>
+	</div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="formSubmissionModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">{{lvm.messageTitle}}</h4>
+			</div>
+			<div class="modal-body">
+				<p>{{lvm.message}}</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
