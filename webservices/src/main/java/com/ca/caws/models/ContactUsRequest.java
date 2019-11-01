@@ -25,6 +25,8 @@ public class ContactUsRequest {
 	
 	private String msg;
 	
+	private String name;
+	
 	@Column(name = "createdOn", updatable = false)
 	@CreationTimestamp
 	private LocalDateTime createdOn;
@@ -89,13 +91,21 @@ public class ContactUsRequest {
 		this.updatedOn = updatedOn;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
 		return "ContactUsRequest [id=" + id + ", emailId=" + emailId + ", contactNo=" + contactNo + ", address="
-				+ address + ", msg=" + msg + ", createdOn=" + createdOn + ", updatedOn=" + updatedOn + "]";
+				+ address + ", msg=" + msg + ", name=" + name + ", createdOn=" + createdOn + ", updatedOn=" + updatedOn
+				+ "]";
 	}
-	
-	
+
 	
 	
 	
