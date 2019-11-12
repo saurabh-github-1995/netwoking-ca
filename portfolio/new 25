@@ -1,0 +1,64 @@
+    if not averageUtil:
+        #print("0")
+        return instances 
+
+    if averageUtil[0] < 25:
+        print("1----")
+        if instances != 1 and instances // 2 > 1:
+            print("1,1----")
+            instances = math.ceil(instances / 2)
+            if 10 < len(averageUtil):
+                print("1,1,1----")
+                return finalInstances(instances, averageUtil[9:])
+            else:
+                print("1,2----")
+                return instances
+        else: 
+            if 1 <= len(averageUtil):
+                return finalInstances(instances, averageUtil[1:])
+            else:
+                return instances
+    
+    elif averageUtil[0] > 60:
+        if instances * 2 < (2*(10**8)):
+            #print("=-")
+            instances = instances * 2
+            if 10 < len(averageUtil):
+                return finalInstances(instances, averageUtil[9:])
+            else:
+                return instances
+        else:
+            if 1 <= len(averageUtil):
+                return finalInstances(instances, averageUtil[1:])
+            else:
+                return instances
+
+    elif averageUtil[0] >= 25 and averageUtil[0] <= 60:
+        if 1 <= len(averageUtil):
+            return finalInstances(instances, averageUtil[1:])
+        else:
+            return instances
+'''
+   # Write your code here
+    i = 0
+
+    while i < len(averageUtil):
+        if averageUtil[i] > 60: 
+            if instances * 2 < (10**5):
+                instances = instances * 2
+                i = i + 10
+            else: 
+                i = i +1
+        
+        elif averageUtil[i] < 25:
+            if instances !=1 and math.ceil(instances / 2) > 1 :
+                instances = math.ceil(instances / 2)
+                i = i + 10
+            else:
+                i = i + 1
+        
+        elif averageUtil[i] > 25 and averageUtil[i] < 60:
+            i = i + 1
+    
+    return instances
+'''

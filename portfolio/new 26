@@ -1,0 +1,142 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+#
+# Complete the 'getUniqueUserIdSum' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def getUniqueUserIdSum(arr):
+    # Write your code here
+
+    unique_set = set()
+
+    for i in range(0, len(arr)):
+        if arr[i] not in unique_set:
+            unique_set.add(arr[i])
+        elif arr[i] in unique_set:
+            unique_set.add(arr[i]+1)
+    #print(unique_set)
+    return sum(x for x in unique_set)
+
+if __name__ == '__main__':
+
+
+ sum = sum+i; sum = sum+i;
+ 
+ 
+ 
+ import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+
+
+class Result {
+
+    /*
+     * Complete the 'getUniqueUserIdSum' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static int getUniqueUserIdSum(List<Integer> arr) {
+        int sizeOfArray = arr.get(0);
+        int a =0;
+        
+        List<Integer> listUnique = getUniqueList(arr);
+        return sum(listUnique);
+    }
+
+    public static List<Integer> getUniqueList(List<Integer> arr) {
+            int a =0;
+        //System.out.print(arr);
+        List<Integer> listUniqueNumbers = new ArrayList<>();
+       // arr.remove(0);
+        for(int i=0;i<arr.size();i++){
+            for(int j=i+1;j<arr.size();j++){
+                if (arr.get(i) == arr.get(j)){
+                    a = arr.get(j);
+                    a++;
+                    arr.set(j, a);
+                   getUniqueList(arr);
+                } else {
+                    
+                }
+            }
+        }
+        System.out.print(arr);
+        return arr;
+    }
+
+     public static int sum(List<Integer> list){
+      int sum = 0;
+      for(Integer i: list){
+             sum = sum+i;
+      }
+      return sum;
+    }
+
+}
+
+public class Solution {
+
+
+
+
+https://www.hackerrank.com/test/7q9lhmq5c1b/questions/dojfa6bs6tq
+
+
+
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+#
+# Complete the 'getUniqueUserIdSum' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+import sys
+
+sys.setrecursionlimit(20000)
+
+def getUniqueUserIdSum(arr):
+    
+    for i in range(0,len(arr)):
+        j=i+1
+        for j in range(j,len(arr)):
+
+            if arr[i]==arr[j]:
+                arr[j]=arr[j]+1
+        getUniqueUserIdSum(arr)
+
+    return(sum(arr))
+
+if __name__ == '__main__':
