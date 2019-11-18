@@ -1,6 +1,7 @@
 package com.ca.caws.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,7 @@ import com.ca.caws.utils.WSResponse;
 public class ContactUsRequestController {
 	@Autowired
 	private ContactUsRequestService contactUsRequestService;
-	
+	@CrossOrigin
 	@PostMapping("/sendContactUsRequest")
 	public WSResponse sendContactUsRequest(@RequestBody ContactUsRequest contactUsRequest) {
 

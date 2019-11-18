@@ -1,10 +1,12 @@
-FROM tomcat
-LABEL maintainer="deepak@softwareyoga.com"
-ADD ssl_certs /usr/local/tomcat/conf/ssl_certs
-#RUN rm -rf /usr/local/tomcat/webapps/ROOT
-ADD ROOT /usr/local/tomcat/webapps/ROOT
-ADD server.xml /usr/local/tomcat/conf/
-
-EXPOSE 8080
-EXPOSE 8443
-CMD ["catalina.sh", "run"]
+FROM php:7.1-apache
+RUN apt-get update && \
+    apt-get install -y \
+        zlib1g-dev
+		
+COPY portfolio /var/www/html/portfolio		
+COPY isaurabh /etc/apache2/ssl/isaurabh
+COPY dev.conf /etc/apache2/sites-enabled/dev.conf
+RUN docker-php-ext-install mysqli pdo pdo_mysql zip mbstring
+RUN a2enmod rewrite
+RUN a2enmod ssl
+RUN service apache2 restart

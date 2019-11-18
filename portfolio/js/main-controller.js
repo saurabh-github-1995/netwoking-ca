@@ -15,7 +15,7 @@ app.controller('myCtrl', function($scope, $http) {
       }
       $http({
           method : "POST",
-          url : "/webservices/sendContactUsRequest",
+          url : "https://139.59.59.220/portfoliows/sendContactUsRequest",
           data:data
           
         }).then(function mySuccess(response) {
